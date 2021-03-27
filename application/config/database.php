@@ -73,13 +73,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-$db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'stephan',
-	'dbdriver' => 'mysqli',
+$db['default'] = array( 
+	'dsn'      => 'mysql:host=23.111.133.90;dbname=arabia39_stephan;charset=utf8;',
+	'hostname' => '23.111.133.90',
+	'username' => 'arabia39',
+	'password' => '!HyA6e3]Wj89rA',
+	'database' => 'arabia39_stephan',
+	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
@@ -92,5 +92,8 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE
+	'save_queries' => TRUE,
+	'options' => [
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ]
 );
