@@ -121,6 +121,9 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 									<span class="menu-text">Dashboard</span>
 								</a>
 							</li>
+							<?php
+							if($this->session->userdata('role') != 'Employee'){
+							?>
 							<li class="menu-item" aria-haspopup="true">
 								<a href="<?php echo base_url('administrator/users'); ?>" class="menu-link">
 									<span class="svg-icon menu-icon">
@@ -137,6 +140,9 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 									<span class="menu-text">Users</span>
 								</a>
 							</li>
+							<?php
+							}
+							?>
 							<li class="menu-item" aria-haspopup="true">
 								<a href="<?php echo base_url('administrator/settings'); ?>" class="menu-link">
 									<span class="svg-icon menu-icon">

@@ -30,6 +30,7 @@ class Customer_user_model extends CI_Model
             'language' => $data['language'],
             'password' => $data['password'],
             'user_group' => $data['user_group'],
+            'which_admin' => $this->session->userdata('id'),
             'profile_avatar' => $avatar_name,
             'profile_avatar_remove' => $data['profile_avatar_remove']
         );
@@ -59,7 +60,6 @@ class Customer_user_model extends CI_Model
         $update_data = array(
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
-            'email' => $data['email'],
             'company_name' => $data['company_name'],
             'street1' => $data['street1'],
             'street2' => $data['street2'],
@@ -69,7 +69,6 @@ class Customer_user_model extends CI_Model
             'country' => $data['country'],
             'language' => $data['language'],
             'password' => $data['password'],
-            'user_group' => $data['user_group'],
             'profile_avatar' => $avatar_name,
             'profile_avatar_remove' => $data['profile_avatar_remove']
         );
@@ -92,6 +91,10 @@ class Customer_user_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('customer_user');
+        if($this->session->userdata('role') != 'SuperAdmin'){
+            $this->db->where('which_admin',$this->session->userdata('id'));
+        }
+        
         $result = $this->db->get()->result();
         return $result;
     }

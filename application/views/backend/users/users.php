@@ -55,7 +55,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Phone#</th>
+                                <th>Country</th>
                                 <th>User Group</th>
                                 <th>Actions</th>
                             </tr>
@@ -64,9 +64,9 @@
                         <?php foreach($user as $key => $val){?>
                             <tr>
                                 <td><?php echo $val->id;?></td>
-                                <td><?php echo $val->name;?></td>
+                                <td><?php echo $val->firstname;?></td>
                                 <td><?php echo $val->email;?></td>
-                                <td><?php echo $val->number;?></td>
+                                <td><?php echo $val->country;?></td>
                                 <td><?php echo $val->user_group;?></td>
                                 <td>
                                     <a href="<?php echo base_url('administrator/view_customer_user'); ?>/<?php echo $val->id;?>" class="btn btn-sm btn-clean btn-icon" title="View Customer">

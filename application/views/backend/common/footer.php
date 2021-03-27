@@ -95,7 +95,15 @@
 <!-- Add customer -->
 <script type="text/javascript">
 	$(document).on('change', '#user_group', function() {
-		value = $(this).val();
+		changeAddUserFormData();
+	});
+	
+	$(document).ready(()=>{
+		changeAddUserFormData();
+	});
+
+	function changeAddUserFormData(){
+		value = $('#user_group').val();
 		if (value == 'SuperAdmin') {
 			$('.super_emp_div').show('slow');
 			$('.admin_div').hide('slow');
@@ -110,7 +118,7 @@
 		if (value == 'Customer') {
 			$('.admin_div').show('slow');
 		}
-	});
+	}
 </script>
 
 </body>
