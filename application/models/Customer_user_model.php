@@ -17,6 +17,7 @@ class Customer_user_model extends CI_Model
         $avatar_name = $file_name;
 
         $insert_data = array(
+            'user_group' => $data['user_group'],
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
@@ -57,6 +58,7 @@ class Customer_user_model extends CI_Model
             $avatar_name = $get_avatar->profile_avatar ;
         }
         $update_data = array(
+            'user_group' => $data['user_group'],
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'email' => $data['email'],
