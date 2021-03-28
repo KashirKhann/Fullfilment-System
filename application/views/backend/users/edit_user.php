@@ -14,14 +14,15 @@
                 </div>
                 <div class="card-body">
                     <form class="form" action="<?php echo base_url('administrator/update_customer_user'); ?>" method="post" enctype="multipart/form-data">
+                        <input type="hidden" value="<?php echo $customer_user->id; ?>" name="id">
                         <div class="form-group row">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <h5>Select the user type you want to add:</h5>
                                 </div>
                                 <label style="margin-right: 0.5em;">User Group:</label>
-                                <div class="dropdown bootstrap-select form-control col-md-4">
-                                    <select class="form-control selectpicker" data-size="5" tabindex="null" name="user_group" id="user_group" readonly disabled>
+                                <div class="col-md-4">
+                                    <select class="form-control" data-size="5" tabindex="null" name="user_group" id="user_group" readonly>
                                          <option value="<?= $customer_user->user_group ?>"><?= $customer_user->user_group ?></option>
                                     </select>
                                 </div>
@@ -45,7 +46,7 @@
                             <div class="col-lg-3">
                                 <label>Email:</label>
                                 <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Please enter your Email" name="email" value="<?= $customer_user->email ?>" readonly disabled/>
+                                    <input type="email" class="form-control" placeholder="Please enter your Email" name="email" value="<?= $customer_user->email ?>" />
                                     <div class="input-group-append"><span class="input-group-text"><i class="flaticon-multimedia"></i></span></div>
                                 </div>
                                 <span class="form-text text-muted">Please enter your Email</span>

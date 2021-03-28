@@ -119,25 +119,17 @@
 
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label class="col-form-label col-3 text-lg-right text-left">Name</label>
+                                            <label class="col-form-label col-3 text-lg-right text-left">First Name</label>
                                             <div class="col-9">
-                                                <input class="form-control form-control-lg form-control-solid" type="text" value="<?php echo $user->name ?>" name="name" />
+                                                <input class="form-control form-control-lg form-control-solid" type="text" value="<?php echo $user->firstname ?>" name="firstname" />
                                             </div>
                                         </div>
                                         <!--end::Group-->
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label class="col-form-label col-3 text-lg-right text-left">Contact Phone</label>
+                                            <label class="col-form-label col-3 text-lg-right text-left">Last Name</label>
                                             <div class="col-9">
-                                                <div class="input-group input-group-lg input-group-solid">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text">
-                                                            <i class="la la-phone"></i>
-                                                        </span>
-                                                    </div>
-                                                    <input type="text" class="form-control form-control-lg form-control-solid" name="number" value="<?php echo $user->number ?>" />
-                                                </div>
-                                                <span class="form-text text-muted">We'll never share your email with anyone else.</span>
+                                                <input class="form-control form-control-lg form-control-solid" type="text" value="<?php echo $user->lastname ?>" name="lastname" />
                                             </div>
                                         </div>
                                         <!--end::Group-->
@@ -153,6 +145,7 @@
                                                     </div>
                                                     <input type="text" class="form-control form-control-lg form-control-solid" name="email" value="<?php echo $user->email; ?>" placeholder="anna.krox@loop.com" />
                                                 </div>
+                                                <span class="form-text text-muted">We'll never share your email with anyone else.</span>
                                             </div>
                                         </div>
                                         <!--end::Group-->

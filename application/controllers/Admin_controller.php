@@ -69,7 +69,7 @@ class Admin_controller extends CI_Controller
 	public function update_customer_user()
 	{
 		$data['customer_user'] = $this->Customer_user_model->update_customer_user($_POST);
-		redirect('administrator/edit_customer_user/' . $_POST['customer_id']);
+		redirect('administrator/edit_customer_user/' . $_POST['id']);
 	}
 
 	/*Delete customer user*/
@@ -138,9 +138,9 @@ class Admin_controller extends CI_Controller
 			$avatar_name = $result->profile_avatar;
 		}
 		$update_data = array(
-			'name' => $_POST['name'],
+			'firstname' => $_POST['firstname'],
+			'lastname' => $_POST['lastname'],
 			'email' => $_POST['email'],
-			'number' => $_POST['number'],
 			'profile_avatar' => $avatar_name,
 		);
 		$this->db->where('id', $this->session->userdata('id'));

@@ -63,6 +63,7 @@ class Customer_user_model extends CI_Model
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
             'company_name' => $data['company_name'],
+            'email' => $data['email'],
             'street1' => $data['street1'],
             'street2' => $data['street2'],
             'city' => $data['city'],
@@ -74,7 +75,7 @@ class Customer_user_model extends CI_Model
             'profile_avatar' => $avatar_name,
             'profile_avatar_remove' => $data['profile_avatar_remove']
         );
-        $this->db->where('id',$data['customer_id']);
+        $this->db->where('id',$data['id']);
         $result = $this->db->update('customer_user', $update_data);
         return $result;
     }
