@@ -124,7 +124,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 							<?php
 							if($this->session->userdata('role') != 'Employee'){
 							?>
-							<li class="menu-item <?=($this->uri->segment(2) == 'users') ? 'menu-item-active' ?>" aria-haspopup="true">
+							<li class="menu-item <?=($this->uri->segment(2) == 'users') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
 								<a href="<?php echo base_url('administrator/users'); ?>" class="menu-link">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
@@ -144,7 +144,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 							}
 							?>
 							<li class="menu-item" aria-haspopup="true">
-								<a href="<?php echo base_url('administrator/settings'); ?>" class="menu-link <?=($this->uri->segment(2) == 'settings') ? 'menu-item-active' ?>">
+								<a href="<?php echo base_url('administrator/settings'); ?>" class="menu-link <?=($this->uri->segment(2) == 'settings') ? 'menu-item-active' : '';  ?>">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
