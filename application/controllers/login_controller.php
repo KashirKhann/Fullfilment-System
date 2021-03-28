@@ -30,13 +30,13 @@ class Login_controller extends CI_Controller
 
 		if (isset($user) && !empty($user)) {
 			$session_data  = array(
-				'name' => $user->name,
+				'firstname' => $user->firstname,
 				'email' => $user->email,
 				'role' => $user->user_group,
 				'id' => $user->id
 			);
 			$this->session->set_userdata($session_data);
-			$this->session->set_flashdata('success', 'Welcome '. $user->name . ' !');
+			$this->session->set_flashdata('success', 'Welcome '. $user->firstname . ' !');
 			redirect('administrator/dashboard');
 		} else {
 			$this->session->set_flashdata('error', 'Wrong Credentials !');
