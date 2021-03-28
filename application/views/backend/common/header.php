@@ -107,7 +107,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 					<div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
 						<!--begin::Menu Nav-->
 						<ul class="menu-nav">
-							<li class="menu-item <?=($this->uri->segment(2) == 'dashboard') ? 'menu-item-active' ?> " aria-haspopup="true">
+							<li class="menu-item <?=($this->uri->segment(2) == 'dashboard') ? 'menu-item-active' : ''; ?> " aria-haspopup="true">
 								<a href="<?php echo base_url('administrator/dashboard'); ?>" class="menu-link">
 									<span class="svg-icon menu-icon">
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
