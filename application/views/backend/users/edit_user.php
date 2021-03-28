@@ -21,11 +21,11 @@
                                     <h5>Select the user type you want to add:</h5>
                                 </div>
                                 <label style="margin-right: 0.5em;">User Group:</label>
-                                <div class="col-md-4">
-                                    <select class="form-control" data-size="5" tabindex="null" name="user_group" id="user_group" readonly>
-                                         <option value="<?= $customer_user->user_group ?>"><?= $customer_user->user_group ?></option>
-                                    </select>
-                                </div>
+                                <!-- <div class="col-lg-4"> -->
+                                <select class="form-control col-lg-4" data-size="5" tabindex="null" name="user_group" id="user_group" readonly>
+                                    <option value="<?= $customer_user->user_group ?>"><?= $customer_user->user_group ?></option>
+                                </select>
+                                <!-- </div> -->
                                 <span class="form-text text-muted">Please select user group</span>
                             </div>
                         </div>
@@ -135,10 +135,10 @@
 
                             </div>
                         </div>
-                        <div class="form-group row" >
+                        <div class="form-group row">
                             <label class="col-form-label col-4">Photo</label>
                             <div class="col-12">
-                                <div class="image-input image-input-empty image-input-outline" id="kt_user_edit_avatar" style="background-image: url(<?php echo base_url('assets/backend'); ?>/media/users/blank.png)">
+                                <div class="image-input image-input-empty image-input-outline" id="kt_user_edit_avatar" style="background-image: url(<?php echo base_url('uploads/' . $customer_user->profile_avatar); ?>)">
                                     <div class="image-input-wrapper"></div>
                                     <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                                         <i class="fa fa-pen icon-sm text-muted"></i>
@@ -162,7 +162,7 @@
                             </div>
                         </div>
                     </form>
-                    
+
                     <!--end::Card-->
                 </div>
                 <!--end::Container-->
