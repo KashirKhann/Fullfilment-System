@@ -52,8 +52,9 @@ class Admin_controller extends CI_Controller
 
 	public function add_user()
 	{
+		$data['getAllUsers'] = $this->Customer_user_model->getAllUsers();
 		$this->load->view('backend/common/header');
-		$this->load->view('backend/users/add_user');
+		$this->load->view('backend/users/add_user', $data);
 		$this->load->view('backend/common/footer');
 	}
 

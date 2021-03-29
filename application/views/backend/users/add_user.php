@@ -1,3 +1,10 @@
+<?php
+    $adminsArr = [];
+    $customersArr = [];
+    $i = 0;
+    $k = 0;
+    
+?>
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Entry-->
     <div class="d-flex flex-column-fluid">
@@ -15,7 +22,7 @@
                 <div class="card-body">
                     <form class="form" action="<?php echo base_url('administrator/insert-customer-user'); ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <h5>Select the user type you want to add:</h5>
                                 </div>
@@ -39,6 +46,31 @@
                                     </select>
                                 </div>
                                 <span class="form-text text-muted">Please select user group</span>
+                            </div>
+                            <div class="col-lg-6 assignparent">
+                                <div class="form-group">
+                                    <h5>Select the user parent:</h5>
+                                </div>
+                                <label style="margin-right: 0.5em;">User Parent:</label>
+                                <div class="dropdown bootstrap-select form-control col-md-4">
+                                    <select class="form-control selectpicker" data-size="5" tabindex="null" name="user_parent" id="user_parent">
+                                        <option value="">-- Select --</option>
+                                        <?php 
+                                        foreach ($getAllUsers as $getAllUser) {
+                                            if($getAllUser->user_group == 'Admin'){
+                                                ?>
+                                                <option class="admin_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                                <?php
+                                            }elseif ($getAllUser->user_group == 'Customer') {
+                                                ?>
+                                                <option class="customer_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <span class="form-text text-muted">Please select parent</span>
                             </div>
                         </div>
 

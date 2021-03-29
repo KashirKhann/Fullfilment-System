@@ -16,6 +16,12 @@ class Customer_user_model extends CI_Model
         $check_upload = upload_image($file_name,$form_name,$path);  
         $avatar_name = $file_name;
 
+        if($data['user_parent'] == ''){
+            $user_parent = $this->session->userdata('id');
+        }else{
+            $user_parent = $data['user_parent'];
+        }
+
         $insert_data = array(
             'user_group' => $data['user_group'],
             'firstname' => $data['firstname'],
@@ -31,9 +37,10 @@ class Customer_user_model extends CI_Model
             'language' => $data['language'],
             'password' => $data['password'],
             'user_group' => $data['user_group'],
-            'which_admin' => $this->session->userdata('id'),
+            'which_admin' => $user_parent,
             'profile_avatar' => $avatar_name,
-            'profile_avatar_remove' => $data['profile_avatar_remove']
+            'profile_avatar_remove' => $data['profile_avatar_remove'],
+            'created_by' => $this->session->userdata('id'),
         );
         $result = $this->db->insert('customer_user', $insert_data);
         if ($result == true) {
@@ -80,6 +87,13 @@ class Customer_user_model extends CI_Model
         return $result;
     }
 
+    public function getAllUsers(){
+        $this->db->select('*');
+        $this->db->from('customer_user');
+        $result = $this->db->get()->result();
+        return $result;
+    }
+
     /*View customer user*/
     public function get_customer_user($id){
         $this->db->select('*');
@@ -97,9 +111,23 @@ class Customer_user_model extends CI_Model
         if($this->session->userdata('role') != 'SuperAdmin'){
             $this->db->where('which_admin',$this->session->userdata('id'));
         }
-        
-        $result = $this->db->get()->result();
-        return $result;
+        $q = $this->db->get();
+        if($q->num_rows() > 0){
+            $i = 0;
+            foreach ($q->result() as $row ) {
+                $data[$i] = $row;
+                $data[$i]->created_name = $this->getCreatedName($row->which_admin);
+                $i++;
+            }
+        }
+        return $data;
+    }
+
+    function getCreatedName($id){
+        $this->db->select('firstname');
+        $this->db->from('customer_user');
+        $this->db->where('id',$id);
+        return  $this->db->get()->row()->firstname;
     }
 
     /*Delete customer_user*/
