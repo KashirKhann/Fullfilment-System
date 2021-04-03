@@ -108,6 +108,8 @@
 			$('.super_emp_div').show('slow');
 			$('.admin_div').hide('slow');
 			$('.assignparent').hide('slow');
+			$('.admin_options').hide();
+			$('.customer_options').hide();
 
 		}
 		if (value == 'Employee') {
@@ -121,6 +123,8 @@
 		if (value == 'Admin') {
 			$('.admin_div').show('slow');
 			$('.assignparent').hide('slow');
+			$('.admin_options').hide();
+			$('.customer_options').hide();
 		}
 		if (value == 'Customer') {
 			$('.admin_div').show('slow');
