@@ -49,7 +49,7 @@
                                 <tr>
                                     <td><?php echo $val->id ?></td>
                                     <td><?php echo $val->email ?></td>
-                                    <td><?php echo $val->created_by ?></td>
+                                    <td><?php echo $val->firstname ?></td>
                                     <td><?php echo $val->customer_user_id ?></td>
                                     <td><?php echo $val->type ?></td>
                                     <td><?php echo $val->created_on ?></td>

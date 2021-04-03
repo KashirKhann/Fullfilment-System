@@ -40,7 +40,6 @@
                                 <th>First Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>User ID</th>
                                 <th>Type</th>
                                 <th>Created On</th>
                             </tr>
@@ -52,7 +51,6 @@
                                     <td><?php echo $val->firstname ?></td>
                                     <td><?php echo $val->email ?></td>
                                     <td><?php echo $val->role ?></td>
-                                    <td><?php echo $val->user_id ?></td>
                                     <td><?php echo $val->type ?></td>
                                     <td><?php echo $val->created_on ?></td>
                                 </tr>
