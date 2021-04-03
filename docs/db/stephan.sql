@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Apr 03, 2021 at 02:04 PM
--- Server version: 10.3.25-MariaDB
--- PHP Version: 7.3.27
+-- Host: 127.0.0.1
+-- Generation Time: Apr 03, 2021 at 11:04 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arabia39_stephan`
+-- Database: `stephan`
 --
 
 -- --------------------------------------------------------
@@ -56,15 +55,68 @@ CREATE TABLE `customer_user` (
 --
 
 INSERT INTO `customer_user` (`id`, `firstname`, `lastname`, `email`, `user_group`, `company_name`, `street1`, `street2`, `city`, `state`, `zip_code`, `country`, `language`, `profile_avatar`, `profile_avatar_remove`, `password`, `recovery_ref`, `date_added`, `which_admin`, `created_by`) VALUES
-(1, 'stephan', 'stephan', 'stephan@admin.com', 'SuperAdmin', '', '', '', '', '', '', '', '', 'processed.jpeg', '', 'admin@123', NULL, '2021-03-27 17:07:36', '1', NULL),
-(3, 'Kitra', 'Santiago', 'daxiwur@mailinator.com', 'Employee', '', '', '', '', '', '', '', '', '', '', 'admin', NULL, '2021-03-27 17:31:00', '2', NULL),
-(5, 'Gary', 'Washington', 'ammar.khan@useo.ae', 'Customer', 'CodeAK', '859 New Boulevard', 'Irure dolores consec', 'Tempor dolores et no', 'Quia amet in laboru', '34789', 'Voluptatem veniam q', 'de', 'kashirkhan-favicon.png', '', 'admin', NULL, '2021-03-27 19:33:22', '2', NULL),
-(6, 'Declan', 'Beasley', 'nenymit@mailinator.com', 'Employee', 'Donovan Cote Traders', 'Iusto similique et u', 'Esse adipisci rerum', 'Mollitia quia qui ad', 'Cumque et porro prov', '70765', 'Nostrum ad eiusmod a', 'en', '', '', 'Pa$$w0rd!', NULL, '2021-03-27 20:11:08', '2', NULL),
-(7, 'Gisela', 'Mcdonald', 'megiq@mailinator.com', 'Customer', 'Skinner Castaneda Plc', 'Possimus quis paria', 'Minim commodi quasi ', 'Ad non quibusdam ut ', 'Expedita unde corrup', '72359', 'Voluptas in non comm', 'en', 'Untitled.png', '', 'Pa$$w0rd!', NULL, '2021-03-27 20:45:11', '1', NULL),
-(8, 'Shariqq', 'Khan', 'shariq@admin.com', 'Admin', 'CodeAK', '859 New Boulevard', 'Irure dolores consec', 'Tempor dolores et no', 'Quia amet in laboru', '34789', 'Pakistan', '', '', '', 'admin@123', NULL, '2021-03-27 20:56:19', '1', NULL),
-(9, 'Kashir', 'Khan', 'kashir@admin.com', 'Customer', 'Customer 1', '573 North Green Oak Road', 'Omnis sit saepe mole', 'Karachi', 'Officiis voluptas do', '54550', 'India', 'en', '1D3426D6-5D00-412C-B207-328F49081D32.JPEG', '', 'admin@123', NULL, '2021-03-27 21:05:41', '1', NULL),
-(11, 'Axel', 'Rowland', 'punifokej@mailinator.com', 'Customer', 'Rosario and Velazquez Trading', 'Blanditiis tempore ', 'Rerum ut libero ut h', 'Eiusmod fuga Tempor', 'Aut consequatur Ass', '64484', 'Quia voluptatem qui', 'en', '', '', 'Pa$$w0rd!', NULL, '2021-03-29 17:36:51', '8', 1),
-(12, 'Katty', 'Steve', 'katty@gmail.com', 'Employee', '', '', '', '', '', '', '', '', '', '', 'admin', NULL, '2021-03-29 17:57:09', '5', 1);
+(1, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 17:07:36', '1', NULL),
+(3, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 17:31:00', '2', NULL),
+(5, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 19:33:22', '2', NULL),
+(6, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 20:11:08', '2', NULL),
+(7, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 20:45:11', '1', NULL),
+(8, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 20:56:19', '1', NULL),
+(9, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 21:05:41', '1', NULL),
+(11, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-29 17:36:51', '8', 1),
+(12, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-29 17:57:09', '5', 1),
+(13, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-04-04 01:47:16', '7', 1),
+(14, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-04-04 01:50:16', '1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log_session`
+--
+
+CREATE TABLE `log_session` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `created_on` datetime NOT NULL DEFAULT current_timestamp(),
+  `type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `log_session`
+--
+
+INSERT INTO `log_session` (`id`, `firstname`, `email`, `role`, `user_id`, `created_on`, `type`) VALUES
+(1, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:38:50', 'login'),
+(2, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:39:01', 'logout'),
+(3, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:39:25', 'login');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log_user`
+--
+
+CREATE TABLE `log_user` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `which_admin` varchar(255) NOT NULL,
+  `created_by` int(111) NOT NULL,
+  `customer_user_id` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `created_on` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `log_user`
+--
+
+INSERT INTO `log_user` (`id`, `email`, `which_admin`, `created_by`, `customer_user_id`, `type`, `created_on`) VALUES
+(1, 'socewer@mailinator.com', '7', 1, 13, 'add', '2021-04-04 01:48:26'),
+(2, 'socewer@mailinator.com', '', 1, 13, 'update', '2021-04-04 01:48:49'),
+(3, 'ammar.khan@useo.ae', '1', 1, 14, 'add', '2021-04-04 01:50:16'),
+(4, 'ammar.khan@useo.ae', '', 1, 14, 'update', '2021-04-04 01:50:47');
 
 --
 -- Indexes for dumped tables
@@ -77,6 +129,18 @@ ALTER TABLE `customer_user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `log_session`
+--
+ALTER TABLE `log_session`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `log_user`
+--
+ALTER TABLE `log_user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -84,7 +148,19 @@ ALTER TABLE `customer_user`
 -- AUTO_INCREMENT for table `customer_user`
 --
 ALTER TABLE `customer_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `log_session`
+--
+ALTER TABLE `log_session`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `log_user`
+--
+ALTER TABLE `log_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
