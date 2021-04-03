@@ -107,7 +107,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 					<div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
 						<!--begin::Menu Nav-->
 						<ul class="menu-nav">
-							<li class="menu-item <?=($this->uri->segment(2) == 'dashboard') ? 'menu-item-active' : ''; ?> " aria-haspopup="true">
+							<li class="menu-item <?= ($this->uri->segment(2) == 'dashboard') ? 'menu-item-active' : ''; ?> " aria-haspopup="true">
 								<a href="<?php echo base_url('administrator/dashboard'); ?>" class="menu-link">
 									<span class="svg-icon menu-icon">
 										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -122,28 +122,68 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 								</a>
 							</li>
 							<?php
-							if($this->session->userdata('role') != 'Employee'){
+							if ($this->session->userdata('role') != 'Employee') {
 							?>
-							<li class="menu-item <?=($this->uri->segment(2) == 'users') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
-								<a href="<?php echo base_url('administrator/users'); ?>" class="menu-link">
-									<span class="svg-icon menu-icon">
-										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
-										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="0" y="0" width="24" height="24" />
-												<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
-												<path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 L7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3" />
-											</g>
-										</svg>
-										<!--end::Svg Icon-->
-									</span>
-									<span class="menu-text">Users</span>
-								</a>
-							</li>
+								<li class="menu-item <?= ($this->uri->segment(2) == 'users') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
+									<a href="<?php echo base_url('administrator/users'); ?>" class="menu-link">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24" />
+													<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
+													<path d="M12,11 C10.8954305,11 10,10.1045695 10,9 C10,7.8954305 10.8954305,7 12,7 C13.1045695,7 14,7.8954305 14,9 C14,10.1045695 13.1045695,11 12,11 Z M7.00036205,16.4995035 C7.21569918,13.5165724 9.36772908,12 11.9907452,12 C14.6506758,12 16.8360465,13.4332455 16.9988413,16.5 C17.0053266,16.6221713 16.9988413,17 16.5815,17 L7.4041679,17 C7.26484009,17 6.98863236,16.6619875 7.00036205,16.4995035 Z" fill="#000000" opacity="0.3" />
+												</g>
+											</svg>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-text">Users</span>
+									</a>
+								</li>
+
+								<!-- Logs -->
+								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+									<a href="javascript:;" class="menu-link menu-toggle">
+										<span class="svg-icon menu-icon">
+											<!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<rect x="0" y="0" width="24" height="24" />
+													<rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+													<path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3" />
+												</g>
+											</svg>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-text">Applications</span>
+										<i class="menu-arrow"></i>
+									</a>
+									<div class="menu-submenu">
+										<i class="menu-arrow"></i>
+										<ul class="menu-subnav">
+											<li class="menu-item menu-item-parent" aria-haspopup="true">
+												<span class="menu-link">
+													<span class="menu-text">Logs History</span>
+												</span>
+											</li>
+											<li class="menu-item" aria-haspopup="true">
+												<a href="custom/apps/inbox.html" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Log Sessions</span>
+													<!-- <span class="menu-label">
+														<span class="label label-danger label-inline">new</span>
+													</span> -->
+												</a>
+											</li>
+										</ul>
+									</div>
+								</li>
 							<?php
 							}
 							?>
-							<li class="menu-item <?=($this->uri->segment(2) == 'settings') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
+							<li class="menu-item <?= ($this->uri->segment(2) == 'settings') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
 								<a href="<?php echo base_url('administrator/settings'); ?>" class="menu-link ">
 									<span class="svg-icon menu-icon">
 										<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->

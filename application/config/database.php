@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array( 
-	'dsn'      => 'mysql:host=23.111.133.90;dbname=arabia39_stephan;charset=utf8;',
-	'hostname' => '23.111.133.90',
-	'username' => 'arabia39',
-	'password' => '!HyA6e3]Wj89rA',
-	'database' => 'arabia39_stephan',
+	'dsn'      => 'mysql:host=localhost;dbname=stephan;charset=utf8;',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'stephan',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

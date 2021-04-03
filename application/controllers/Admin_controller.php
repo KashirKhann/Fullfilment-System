@@ -188,6 +188,17 @@ class Admin_controller extends CI_Controller
 	/*logout*/
 	public function logout()
 	{
+		$session_data = $this->session->userdata();
+		$this->db->insert('log_session', array(
+			'firstname' => $session_data['firstname'],
+			'email' => $session_data['email'],
+			'type' => 'logout',
+			'role' => $session_data['role'],
+			'user_id' => $session_data['id']
+		));
+		// 		echo "<pre>";
+		// 		print_r($session_data);
+		// exit;
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('error', 'You are logged out !');
 		redirect('administrator');

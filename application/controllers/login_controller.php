@@ -35,8 +35,16 @@ class Login_controller extends CI_Controller
 				'role' => $user->user_group,
 				'id' => $user->id
 			);
+			// Inserting the data into the logs
+			$this->db->insert('log_session', array(
+				'firstname' => $user->firstname,
+				'email' => $user->email,
+				'type' => 'login',
+				'role' => $user->user_group,
+				'user_id' => $user->id
+			));
 			$this->session->set_userdata($session_data);
-			$this->session->set_flashdata('success', 'Welcome '. $user->firstname . ' !');
+			$this->session->set_flashdata('success', 'Welcome ' . $user->firstname . ' !');
 			redirect('administrator/dashboard');
 		} else {
 			$this->session->set_flashdata('error', 'Wrong Credentials !');
@@ -44,53 +52,55 @@ class Login_controller extends CI_Controller
 		}
 	}
 
-	 public function update_password(){
-	 	$this->form_validation->set_rules('password', 'Password', 'required');
+	public function update_password()
+	{
+		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
-	 	if($this->form_validation->run() === TRUE){
-	 		$passUpdate = $this->Login_model->update_passwordUser($this->input->post('ref'),$this->input->post('password'));
-	 		if($passUpdate){
-	 		$this->session->set_flashdata('success', 'Password Has Been Changed');
-	 		redirect('Login_controller/login/');
-	 		}else{
-	 		$this->session->set_flashdata('success', 'Password Changed Failed');
-	 		redirect('Login_controller/login/');
-	 		}
-	 	}else{
-	 		$this->session->set_flashdata('message', 'Confirm passwod not matched');
-	 		redirect('Login_controller/new_password/'.$_POST['ref']);
-	 	}
-    }
+		if ($this->form_validation->run() === TRUE) {
+			$passUpdate = $this->Login_model->update_passwordUser($this->input->post('ref'), $this->input->post('password'));
+			if ($passUpdate) {
+				$this->session->set_flashdata('success', 'Password Has Been Changed');
+				redirect('Login_controller/login/');
+			} else {
+				$this->session->set_flashdata('success', 'Password Changed Failed');
+				redirect('Login_controller/login/');
+			}
+		} else {
+			$this->session->set_flashdata('message', 'Confirm passwod not matched');
+			redirect('Login_controller/new_password/' . $_POST['ref']);
+		}
+	}
 
 	public function new_password($getRef)
 	{
 		$checkRefExist = $this->Login_model->validate_ref($getRef);
-		if($checkRefExist){
-		$data['ref'] = $getRef;
-		$this->load->view('backend/new_password',$data);
-		}else{
-		$this->load->view('backend/login');
+		if ($checkRefExist) {
+			$data['ref'] = $getRef;
+			$this->load->view('backend/new_password', $data);
+		} else {
+			$this->load->view('backend/login');
 		}
 	}
 
-	public function reset_password(){
-		$randRef = random_string('alnum', 16).time();
+	public function reset_password()
+	{
+		$randRef = random_string('alnum', 16) . time();
 		$email = $this->input->post('email');
 		$checkUserExist = $this->Login_model->validate_user($email);
-		if($checkUserExist){
-			$updateRef = $this->Login_model->update_forget_ref($randRef,$email);
-			if($updateRef){
+		if ($checkUserExist) {
+			$updateRef = $this->Login_model->update_forget_ref($randRef, $email);
+			if ($updateRef) {
 				$message = '<div>
 							<strong>Hi,</strong>
 							<div>Please click the link below to reset password</div>
-							<div>'.base_url('Login_controller/new_password/'.$randRef).'</div>
+							<div>' . base_url('Login_controller/new_password/' . $randRef) . '</div>
 							</div>';
-				$this->send_mail($email,$message);
-			echo json_encode("Password Recovery Email Has Been Send, Check Email!");
-			}else{
-			echo json_encode("Something Went Wrong");
+				$this->send_mail($email, $message);
+				echo json_encode("Password Recovery Email Has Been Send, Check Email!");
+			} else {
+				echo json_encode("Something Went Wrong");
 			}
-		}else{
+		} else {
 			echo json_encode("Not Email Exist, Try Again");
 		}
 		exit();
