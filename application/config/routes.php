@@ -18,6 +18,11 @@ $route['administrator/update_customer_user'] = 'Admin_controller/update_customer
 $route['administrator/delete_customer_user/(:num)'] = 'Admin_controller/delete_customer_user/$1';
 /*users Ends*/
 
+// Logs History Start
+$route['administrator/log-user'] = 'Admin_controller/log_user';
+$route['administrator/log-session'] = 'Admin_controller/log_session';
+// Logs History End
+
 /*settings Start*/
 $route['administrator/settings'] = 'Admin_controller/settings';
 $route['administrator/mail'] = 'Admin_controller/mail';

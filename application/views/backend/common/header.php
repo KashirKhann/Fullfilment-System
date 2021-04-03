@@ -155,26 +155,26 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 											</svg>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-text">Applications</span>
+										<span class="menu-text">Logs History</span>
 										<i class="menu-arrow"></i>
 									</a>
 									<div class="menu-submenu">
 										<i class="menu-arrow"></i>
 										<ul class="menu-subnav">
-											<li class="menu-item menu-item-parent" aria-haspopup="true">
-												<span class="menu-link">
-													<span class="menu-text">Logs History</span>
-												</span>
-											</li>
 											<li class="menu-item" aria-haspopup="true">
-												<a href="custom/apps/inbox.html" class="menu-link">
+												<a href="<?php echo base_url('administrator/log-session') ?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
 													<span class="menu-text">Log Sessions</span>
-													<!-- <span class="menu-label">
-														<span class="label label-danger label-inline">new</span>
-													</span> -->
+												</a>
+											</li>
+											<li class="menu-item" aria-haspopup="true">
+												<a href="<?php echo base_url('administrator/log-user') ?>" class="menu-link">
+													<i class="menu-bullet menu-bullet-line">
+														<span></span>
+													</i>
+													<span class="menu-text">Log User</span>
 												</a>
 											</li>
 										</ul>

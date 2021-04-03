@@ -8,6 +8,7 @@ class Admin_controller extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Customer_user_model');
+		$this->load->model('Logs_model');
 		$session = $this->session->userdata('email');
 		if (empty($session)) {
 			$this->session->set_flashdata('error', 'You are not logged in !');
@@ -150,6 +151,26 @@ class Admin_controller extends CI_Controller
 	}
 	/********************users listing End***************/
 
+	// Logs User 
+	public function log_user()
+	{
+		$data['log_user'] = $this->Logs_model->log_user();
+		$this->load->view('backend/common/header');
+		$this->load->view('backend/logs/log_user', $data);
+		$this->load->view('backend/common/footer');
+	}
+
+	// Logs Session 
+	public function log_session()
+	{
+		$data['log_session'] = $this->Logs_model->log_session();
+		$this->load->view('backend/common/header');
+		$this->load->view('backend/logs/log_session', $data);
+		$this->load->view('backend/common/footer');
+	}
+
+
+	/********************Mail Sending***************/
 	public function send_mail($to_email, $message)
 	{
 		$config = array(
