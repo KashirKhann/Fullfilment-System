@@ -100,4 +100,13 @@ class CI_Controller {
 		return self::$instance;
 	}
 
+
+	//setup the page constructor
+	function page_construct($page, $data = array(), $meta = array()) {
+		$meta['assets'] = base_url() . 'assets/backend';
+		$this->load->view('backend/common/header', $meta);
+        $this->load->view($page,$data);
+        $this->load->view('backend/common/footer');
+	}
+
 }
