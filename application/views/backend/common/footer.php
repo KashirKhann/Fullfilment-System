@@ -94,45 +94,47 @@
 
 <!-- Add customer -->
 <script type="text/javascript">
+	$(document).ready(()=>{
 	$(document).on('change', '#user_group', function() {
 		changeAddUserFormData();
+		});
+		
+		$(document).ready(()=>{
+			changeAddUserFormData();
+		});
+
+		function changeAddUserFormData(){
+			value = $('#user_group').val();
+			if (value == 'SuperAdmin') {
+				$('.super_emp_div').show('slow');
+				$('.admin_div').hide('slow');
+				$('.assignparent').hide('slow');
+				$('.admin_options').hide();
+				$('.customer_options').hide();
+
+			}
+			if (value == 'Employee') {
+				$('.super_emp_div').show('slow');
+				$('.admin_div').hide('slow');
+				$('.assignparent').show('slow');
+				$('.admin_options').hide();
+				$('.customer_options').show();
+
+			}
+			if (value == 'Admin') {
+				$('.admin_div').show('slow');
+				$('.assignparent').hide('slow');
+				$('.admin_options').hide();
+				$('.customer_options').hide();
+			}
+			if (value == 'Customer') {
+				$('.admin_div').show('slow');
+				$('.assignparent').show('slow');
+				$('.admin_options').show();
+				$('.customer_options').hide();
+			}
+		}
 	});
-	
-	$(document).ready(()=>{
-		changeAddUserFormData();
-	});
-
-	function changeAddUserFormData(){
-		value = $('#user_group').val();
-		if (value == 'SuperAdmin') {
-			$('.super_emp_div').show('slow');
-			$('.admin_div').hide('slow');
-			$('.assignparent').hide('slow');
-			$('.admin_options').hide();
-			$('.customer_options').hide();
-
-		}
-		if (value == 'Employee') {
-			$('.super_emp_div').show('slow');
-			$('.admin_div').hide('slow');
-			$('.assignparent').show('slow');
-			$('.admin_options').hide();
-			$('.customer_options').show();
-
-		}
-		if (value == 'Admin') {
-			$('.admin_div').show('slow');
-			$('.assignparent').hide('slow');
-			$('.admin_options').hide();
-			$('.customer_options').hide();
-		}
-		if (value == 'Customer') {
-			$('.admin_div').show('slow');
-			$('.assignparent').show('slow');
-			$('.admin_options').show();
-			$('.customer_options').hide();
-		}
-	}
 </script>
 
 </body>
