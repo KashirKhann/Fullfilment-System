@@ -35,7 +35,7 @@ class Login_controller extends CI_Controller
 				'role' => $user->user_group,
 				'id' => $user->id
 			);
-			// Inserting the data into the logs
+			// Inserting the data into the logs 
 			$this->db->insert('log_session', array(
 				'firstname' => $user->firstname,
 				'email' => $user->email,
