@@ -38,6 +38,7 @@
                             <tr>
                                 <th>Log ID</th>
                                 <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Type</th>
@@ -49,6 +50,7 @@
                                 <tr>
                                     <td><?php echo $val->id ?></td>
                                     <td><?php echo $val->firstname ?></td>
+                                    <td><?php echo $val->lastname ?></td>
                                     <td><?php echo $val->email ?></td>
                                     <td><?php echo $val->role ?></td>
                                     <td><?php echo $val->type ?></td>

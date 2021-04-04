@@ -5,7 +5,7 @@ class Logs_model extends CI_Model
 {
     // Logs Session 
     public function log_session(){
-        $this->db->select('ls.*,cu.firstname');
+        $this->db->select('ls.*,cu.firstname,cu.lastname');
         $this->db->from('log_session as ls');
         $this->db->join('customer_user as cu','ls.user_id = cu.id ','LEFT');
         $this->db->order_by('ls.created_on','DESC');
@@ -16,7 +16,7 @@ class Logs_model extends CI_Model
     // Logs User 
     public function log_user()
     {
-        $this->db->select('lu.*,cu.firstname');
+        $this->db->select('lu.*,cu.firstname,cu.lastname');
         $this->db->from('log_user as lu');
         $this->db->join('customer_user as cu','lu.created_by = cu.id','LEFT');
         $this->db->order_by('lu.created_on','DESC');

@@ -149,7 +149,7 @@ class Admin_controller extends CI_Controller
 		$result = $this->db->update('customer_user', $update_data);
 		redirect('administrator/settings');
 	}
-	/********************users listing End***************/
+	/******************** Users listing End ***************/
 
 	// Logs User 
 	public function log_user()
@@ -170,7 +170,7 @@ class Admin_controller extends CI_Controller
 	}
 
 
-	/********************Mail Sending***************/
+	/******************** Mail Sending ***************/
 	public function send_mail($to_email, $message)
 	{
 		$config = array(
@@ -206,7 +206,7 @@ class Admin_controller extends CI_Controller
 		}
 	}
 
-	/*logout*/
+	/******************** logout ***************/
 	public function logout()
 	{
 		$session_data = $this->session->userdata();

@@ -37,9 +37,9 @@
                         <thead>
                             <tr>
                                 <th>Log ID</th>
+                                <th>User ID</th>
                                 <th>Email</th>
                                 <th>Created By</th>
-                                <th>User ID</th>
                                 <th>Type</th>
                                 <th>Created On</th>
                             </tr>
@@ -48,9 +48,9 @@
                             <?php foreach ($log_user as $key => $val) { ?>
                                 <tr>
                                     <td><?php echo $val->id ?></td>
-                                    <td><?php echo $val->email ?></td>
-                                    <td><?php echo $val->firstname ?></td>
                                     <td><?php echo $val->customer_user_id ?></td>
+                                    <td><?php echo $val->email ?></td>
+                                    <td><?php echo $val->firstname . ' ' . $val->lastname ?></td>
                                     <td><?php echo $val->type ?></td>
                                     <td><?php echo $val->created_on ?></td>
                                 </tr>
