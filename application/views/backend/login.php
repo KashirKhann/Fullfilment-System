@@ -90,7 +90,7 @@
 							<div class="form-group">
 								<div class="d-flex justify-content-between mt-n5">
 									<label class="font-size-h6 font-weight-bolder text-dark pt-5">Password</label>
-									<a href="javascript:;" class="text-light-dark font-size-h6 font-weight-bolder text-hover-dark pt-5" data-toggle="modal" data-target="#kt_login_forgot">Forgot Password ?</a>
+									<!-- <a href="javascript:;" class="text-light-dark font-size-h6 font-weight-bolder text-hover-dark pt-5" data-toggle="modal" data-target="#kt_login_forgot">Forgot Password ?</a> -->
 								</div>
 								<input class="form-control form-control-solid h-auto p-6 rounded-lg" type="password" name="password" autocomplete="on" />
 							</div>

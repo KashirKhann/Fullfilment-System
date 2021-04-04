@@ -25,7 +25,6 @@ $route['administrator/log-session'] = 'Admin_controller/log_session';
 
 /*settings Start*/
 $route['administrator/settings'] = 'Admin_controller/settings';
-$route['administrator/mail'] = 'Admin_controller/mail';
 $route['administrator/update-user'] = 'Admin_controller/update_user';
 $route['administrator/change-password'] = 'Admin_controller/change_password';
 /*settings Ends*/

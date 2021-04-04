@@ -84,7 +84,7 @@ class Admin_controller extends CI_Controller
 	}
 	/********************users listing Ends***************/
 
-	/********************users listing Starts***************/
+	/******************** Settings Starts***************/
 
 	public function settings()
 	{
@@ -149,7 +149,7 @@ class Admin_controller extends CI_Controller
 		$result = $this->db->update('customer_user', $update_data);
 		redirect('administrator/settings');
 	}
-	/******************** Users listing End ***************/
+	/******************** Settings End ***************/
 
 	// Logs User 
 	public function log_user()
