@@ -123,16 +123,15 @@
 									</div>
 									<div class="modal-body">
 										<!--begin::Title-->
-										<div class="pb-13 pt-lg-0 pt-5">
-
+										<div class="pb-3 pt-lg-0 pt-5">
 											<p class="text-muted font-weight-bold font-size-h4">Enter your email to reset your password</p>
 										</div>
 										<!--end::Title-->
 										<!--begin::Form group-->
 										<div class="form-group">
 											<input class="form-control form-control-solid h-auto p-6 rounded-lg font-size-h6" type="email" id="email_forget" placeholder="Email" name="email_forget" autocomplete="off" />
+											<div class="forget_msg"></div>
 										</div>
-										<div class="forget_msg"></div>
 										<!--end::Form group-->
 										<!--begin::Form group-->
 										<div class="form-group d-flex flex-wrap pb-lg-0">
