@@ -93,6 +93,7 @@ class Customer_user_model extends CI_Model
             'profile_avatar_remove' => $data['profile_avatar_remove']
         );
         $this->db->where('id', $data['id']);
+        $result = $this->db->update('customer_user', $update_data);
         $this->db->insert('log_user', array(
             'email' => $data['email'],
             'which_admin' => '',
@@ -100,7 +101,6 @@ class Customer_user_model extends CI_Model
             'created_by' => $this->session->userdata('id'),
             'customer_user_id' => $data['id'],
         ));
-        $result = $this->db->update('customer_user', $update_data);
         return $result;
     }
 
