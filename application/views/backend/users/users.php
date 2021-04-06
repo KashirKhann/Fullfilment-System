@@ -58,6 +58,7 @@
                                 <th>Country</th>
                                 <th>User Group</th>
                                 <th>Created By</th>
+                                <th>Parent</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -70,6 +71,7 @@
                                 <td><?php echo $val->country;?></td>
                                 <td><?php echo $val->user_group;?></td>
                                 <td><?php echo $val->created_name;?></td>
+                                <td><?php echo $val->parent_name;?></td>
                                 <td>
                                     <a href="<?php echo base_url('administrator/view_customer_user'); ?>/<?php echo $val->id;?>" class="btn btn-sm btn-clean btn-icon" title="View Customer">
                                         <span class="svg-icon svg-icon-md">

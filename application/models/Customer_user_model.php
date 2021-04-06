@@ -139,6 +139,7 @@ class Customer_user_model extends CI_Model
             foreach ($q->result() as $row) {
                 $data[$i] = $row;
                 $data[$i]->created_name = $this->getCreatedName($row->which_admin);
+                $data[$i]->parent_name = $this->getParentName($row->which_admin);
                 $i++;
             }
         }
@@ -153,6 +154,24 @@ class Customer_user_model extends CI_Model
         $q = $this->db->get();
         if (!empty($q->result())) {
             return $q->result()[0]->firstname;
+        } else {
+            return '';
+        }
+    } 
+
+
+    function getParentName($id)
+    {
+        $this->db->select('which_admin');
+        $this->db->from('customer_user');
+        $this->db->where('id', $id);
+        $q = $this->db->get();
+        if (!empty($q->result())) {
+            $this->db->select('firstname');
+            $this->db->from('customer_user');
+            $this->db->where('id',  $q->result()[0]->which_admin);
+            $k = $this->db->get();
+            return $k->result()[0]->firstname;
         } else {
             return '';
         }
