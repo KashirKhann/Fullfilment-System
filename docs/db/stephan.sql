@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 03, 2021 at 11:04 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- Host: localhost:3306
+-- Generation Time: Apr 06, 2021 at 05:05 AM
+-- Server version: 10.3.25-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `stephan`
+-- Database: `arabia39_stephan`
 --
 
 -- --------------------------------------------------------
@@ -55,17 +56,9 @@ CREATE TABLE `customer_user` (
 --
 
 INSERT INTO `customer_user` (`id`, `firstname`, `lastname`, `email`, `user_group`, `company_name`, `street1`, `street2`, `city`, `state`, `zip_code`, `country`, `language`, `profile_avatar`, `profile_avatar_remove`, `password`, `recovery_ref`, `date_added`, `which_admin`, `created_by`) VALUES
-(1, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 17:07:36', '1', NULL),
-(3, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 17:31:00', '2', NULL),
-(5, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 19:33:22', '2', NULL),
-(6, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 20:11:08', '2', NULL),
-(7, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 20:45:11', '1', NULL),
-(8, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 20:56:19', '1', NULL),
-(9, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-27 21:05:41', '1', NULL),
-(11, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-29 17:36:51', '8', 1),
-(12, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-03-29 17:57:09', '5', 1),
-(13, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-04-04 01:47:16', '7', 1),
-(14, 'asd12223', 'asas234', 'ammar.khan@useo.ae', 'Admin', 'asa', 'sasazxf232--fgfg', 'as', 'asd', 'asdasd', '1212', 'asdas', '', '', '', 'thermodynamic94', NULL, '2021-04-04 01:50:16', '1', 1);
+(1, 'stephan', 'stephan', 'stephan@admin.com', 'SuperAdmin', '', '', '', '', '', '', '', '', 'processed.jpeg', '', 'admin@123', NULL, '2021-03-27 17:07:36', '1', NULL),
+(2, 'admin', 'admin', 'admin@admin.com', 'Admin', 'Abc', 'Abc', 'Abc', 'Abc', 'Abc', '12345', 'Abc', 'en', '', '', 'admin', NULL, '2021-04-03 18:46:06', '1', 1),
+(4, 'Boyd', 'Fahey', 'Otto46@hotmail.com', 'Customer', 'Abc', '097 Kilback Crossroad', 'Abc', 'Ansleybury', 'Florida', '73399', 'Switzerland', 'de', '', '', 'admin', 'Yiot1UjrXWHN8ISv1617526026', '2021-04-03 18:47:23', '2', 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +83,20 @@ CREATE TABLE `log_session` (
 INSERT INTO `log_session` (`id`, `firstname`, `email`, `role`, `user_id`, `created_on`, `type`) VALUES
 (1, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:38:50', 'login'),
 (2, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:39:01', 'logout'),
-(3, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:39:25', 'login');
+(3, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:39:25', 'login'),
+(4, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-03 18:32:38', 'logout'),
+(5, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-03 18:33:19', 'logout'),
+(6, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-03 18:44:51', 'logout'),
+(7, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-03 18:45:01', 'login'),
+(8, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 01:40:21', 'login'),
+(9, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 04:23:42', 'login'),
+(10, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 04:33:10', 'login'),
+(11, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 04:43:53', 'logout'),
+(12, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 05:32:35', 'login'),
+(13, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 05:37:18', 'logout'),
+(14, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-04 06:58:30', 'login'),
+(15, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-06 03:00:20', 'login'),
+(16, 'stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-06 03:02:18', 'logout');
 
 -- --------------------------------------------------------
 
@@ -116,7 +122,10 @@ INSERT INTO `log_user` (`id`, `email`, `which_admin`, `created_by`, `customer_us
 (1, 'socewer@mailinator.com', '7', 1, 13, 'add', '2021-04-04 01:48:26'),
 (2, 'socewer@mailinator.com', '', 1, 13, 'update', '2021-04-04 01:48:49'),
 (3, 'ammar.khan@useo.ae', '1', 1, 14, 'add', '2021-04-04 01:50:16'),
-(4, 'ammar.khan@useo.ae', '', 1, 14, 'update', '2021-04-04 01:50:47');
+(4, 'ammar.khan@useo.ae', '', 1, 14, 'update', '2021-04-04 01:50:47'),
+(5, 'admin@admin.com', '1', 1, 2, 'add', '2021-04-03 18:46:06'),
+(6, 'customer@customer.com', '1', 1, 3, 'add', '2021-04-03 18:46:55'),
+(7, 'Otto46@hotmail.com', '2', 1, 4, 'add', '2021-04-03 18:47:23');
 
 --
 -- Indexes for dumped tables
@@ -148,19 +157,19 @@ ALTER TABLE `log_user`
 -- AUTO_INCREMENT for table `customer_user`
 --
 ALTER TABLE `customer_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `log_session`
 --
 ALTER TABLE `log_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `log_user`
 --
 ALTER TABLE `log_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

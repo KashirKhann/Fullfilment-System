@@ -62,6 +62,7 @@ class Admin_controller extends CI_Controller
 	public function edit_customer_user($id)
 	{
 		$data['customer_user'] = $this->Customer_user_model->get_customer_user($id);
+		$data['getAllUsers'] = $this->Customer_user_model->getAllUsers();
 		$this->load->view('backend/common/header');
 		$this->load->view('backend/users/edit_user', $data);
 		$this->load->view('backend/common/footer');

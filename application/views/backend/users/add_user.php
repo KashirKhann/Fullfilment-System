@@ -51,9 +51,10 @@
                                 <div class="form-group">
                                     <h5>Select the user parent:</h5>
                                 </div>
-                                <label style="margin-right: 0.5em;">User Parent:</label>
-                                <div class="dropdown bootstrap-select form-control col-md-4">
-                                    <select class="form-control selectpicker" data-size="5" tabindex="null" name="user_parent" id="user_parent">
+                               
+                                <div class="col-md-6">
+                                     <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
+                                    <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
                                         <option value="">-- Select --</option>
                                         <?php 
                                         foreach ($getAllUsers as $getAllUser) {

@@ -108,6 +108,9 @@ class Customer_user_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('customer_user');
+        if ($this->session->userdata('role') != 'SuperAdmin') {
+          $this->db->where('created_by', $this->session->userdata('id'));
+        }
         $result = $this->db->get()->result();
         return $result;
     }

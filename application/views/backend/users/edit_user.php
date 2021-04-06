@@ -16,7 +16,7 @@
                     <form class="form" action="<?php echo base_url('administrator/update_customer_user'); ?>" method="post" enctype="multipart/form-data">
                         <input type="hidden" value="<?php echo $customer_user->id; ?>" name="id">
                         <div class="form-group row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="form-group">
                                     <h5>Select the user type you want to add:</h5>
                                 </div>
@@ -27,6 +27,32 @@
                                 </select>
                                 <!-- </div> -->
                                 <span class="form-text text-muted">Please select user group</span>
+                            </div>
+                            <div class="col-lg-6 assignparent">
+                                <div class="form-group">
+                                    <h5>Select the user parent:</h5>
+                                </div>
+                               
+                                <div class="col-md-6">
+                                     <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
+                                    <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
+                                        <option value="">-- Select --</option>
+                                        <?php 
+                                        foreach ($getAllUsers as $getAllUser) {
+                                            if($getAllUser->user_group == 'Admin'){
+                                                ?>
+                                                <option class="admin_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                                <?php
+                                            }elseif ($getAllUser->user_group == 'Customer') {
+                                                ?>
+                                                <option class="customer_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                                <?php
+                                            }
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <span class="form-text text-muted">Please select parent</span>
                             </div>
                         </div>
 

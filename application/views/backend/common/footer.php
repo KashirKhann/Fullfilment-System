@@ -128,14 +128,26 @@
 				$('.customer_options').hide();
 			}
 			if (value == 'Customer') {
-				$('.admin_div').show('slow');
-				$('.assignparent').show('slow');
+				$('.admin_div').show();
+				$('.assignparent').show();
 				$('.admin_options').show();
 				$('.customer_options').hide();
 			}
 		}
 	});
 </script>
+
+<?php
+	if ($this->uri->segment(2) === 'edit_customer_user'){
+?>
+<script type="text/javascript">
+    jQuery(document).ready(()=>{
+        jQuery('#user_parent').val('<?= $customer_user->which_admin ?>');
+    });
+</script>
+<?php
+}
+?>
 
 </body>
 <!--end::Body-->
