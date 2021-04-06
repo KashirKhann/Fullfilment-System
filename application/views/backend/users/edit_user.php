@@ -35,6 +35,13 @@
                                
                                 <div class="col-md-6">
                                      <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
+                                    <?php
+                                    if($customer_user->user_group == 'Admin'){
+                                    ?>
+                                    <input type="hidden" name="user_parent">
+                                    <?php
+                                    }else{
+                                    ?>
                                     <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
                                         <option value="">-- Select --</option>
                                         <?php 
@@ -51,6 +58,9 @@
                                         }
                                         ?>
                                     </select>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                                 <span class="form-text text-muted">Please select parent</span>
                             </div>
