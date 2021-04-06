@@ -72,7 +72,7 @@ class Customer_user_model extends CI_Model
             $check_upload = upload_image($file_name, $form_name, $path);
             $avatar_name = $file_name;
         } else {
-            $get_avatar = $this->get_customer_user($data['customer_id']);
+            $get_avatar = $this->get_customer_user($data['id']);
             $avatar_name = $get_avatar->profile_avatar;
         }
         $update_data = array(
