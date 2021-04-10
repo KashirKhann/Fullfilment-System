@@ -63,9 +63,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                        <?php foreach($user as $key => $val){?>
+                        <?php 
+                        $sno = 1;
+                        foreach($user as $key => $val){?>
                             <tr>
-                                <td><?php echo $val->id;?></td>
+                                <td><?php echo $sno;?></td>
                                 <td><?php echo $val->firstname;?></td>
                                 <td><?php echo $val->email;?></td>
                                 <td><?php echo $val->country;?></td>
@@ -83,7 +85,11 @@
                                             <i class="flaticon2-edit"></i>
                                         </span>
                                     </a>
-                                    <a href="<?php echo base_url('administrator/delete_customer_user'); ?>/<?php echo $val->id;?>" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                    <?php
+                                    if ($this->session->userdata('role') == 'SuperAdmin') {
+                                    ?>
+
+                                    <a href="<?php echo base_url('administrator/delete_customer_user'); ?>/<?php echo $val->id;?>" class="btn btn-sm deleteBtn btn-clean btn-icon" title="Delete">
                                         <span class="svg-icon svg-icon-md">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -94,9 +100,13 @@
                                             </svg>
                                         </span>
                                     </a>
+                                    <?php
+                                    }
+                                    ?>
                                 </td>
                             </tr>
-                        <?php }?>
+                        <?php $sno++;
+                        }?>
                         </tbody>
                     </table>
                     <!--end: Datatable-->

@@ -155,7 +155,12 @@ class Admin_controller extends CI_Controller
 	// Logs User 
 	public function log_user()
 	{
-		$data['log_user'] = $this->Logs_model->log_user();
+		if($this->session->userdata('role') != 'SuperAdmin'){
+			$getValues = $this->Logs_model->get_childrens();
+		}else{
+			$getValues = '';
+		}
+		$data['log_user'] = $this->Logs_model->log_user($getValues);
 		$this->load->view('backend/common/header');
 		$this->load->view('backend/logs/log_user', $data);
 		$this->load->view('backend/common/footer');
@@ -164,7 +169,12 @@ class Admin_controller extends CI_Controller
 	// Logs Session 
 	public function log_session()
 	{
-		$data['log_session'] = $this->Logs_model->log_session();
+		if($this->session->userdata('role') != 'SuperAdmin'){
+			$getValues = $this->Logs_model->get_childrens();
+		}else{
+			$getValues = '';
+		}
+		$data['log_session'] = $this->Logs_model->log_session($getValues);
 		$this->load->view('backend/common/header');
 		$this->load->view('backend/logs/log_session', $data);
 		$this->load->view('backend/common/footer');

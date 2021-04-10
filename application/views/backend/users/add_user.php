@@ -56,6 +56,13 @@
                                      <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
                                     <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
                                         <option value="">-- Select --</option>
+                                        <?php
+                                        if($this->session->userdata('user_group') != 'SuperAdmin'){
+                                        ?>
+                                        <option value="<?= $this->session->userdata('id') ?>"><?= $this->session->userdata('email') ?></option>
+                                        <?php
+                                        }
+                                        ?>
                                         <?php 
                                         foreach ($getAllUsers as $getAllUser) {
                                             if($getAllUser->user_group == 'Admin'){

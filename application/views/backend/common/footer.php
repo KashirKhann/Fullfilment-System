@@ -91,7 +91,7 @@
 <!-- edit-user - settings -->
 <script src="<?php echo base_url('assets/backend'); ?>/js/pages/custom/user/edit-user.js"></script>
 <!-- close -->
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- Add customer -->
 <script type="text/javascript">
 	$(document).ready(()=>{
@@ -134,8 +134,33 @@
 				$('.customer_options').hide();
 			}
 		}
+
+		
+		$(document).on('click', '.deleteBtn', function(e) {
+			e.preventDefault();
+			Swal.fire({
+				  title: 'Are you sure?',
+				  text: "You won't be able to revert this!",
+				  icon: 'warning',
+				  showCancelButton: true,
+				  confirmButtonColor: '#3085d6',
+				  cancelButtonColor: '#d33',
+				  confirmButtonText: 'Yes, delete it!'
+				}).then((result) => {
+				  if (result.isConfirmed) {
+				    Swal.fire(
+				      'Deleted!',
+				      'Your file has been deleted.',
+				      'success'
+				    )
+				    window.location.href = $(this).attr('href');
+				  }
+				})
+		});
 	});
 </script>
+
+
 
 <?php
 	if ($this->uri->segment(2) === 'edit_customer_user'){
