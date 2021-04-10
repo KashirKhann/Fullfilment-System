@@ -58,7 +58,7 @@
                                 <th>Country</th>
                                 <th>User Group</th>
                                 <th>Created By</th>
-                                <th>Created Parent</th>
+                                <th>Parent</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

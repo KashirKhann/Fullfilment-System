@@ -167,11 +167,11 @@ class Customer_user_model extends CI_Model
         $this->db->where('id', $id);
         $q = $this->db->get();
         if (!empty($q->result())) {
-            $this->db->select('firstname');
+            $this->db->select('firstname,lastname');
             $this->db->from('customer_user');
             $this->db->where('id',  $q->result()[0]->which_admin);
             $k = $this->db->get();
-            return $k->result()[0]->firstname;
+            return $k->result()[0]->firstname.' '.$k->result()[0]->lastname;
         } else {
             return '';
         }

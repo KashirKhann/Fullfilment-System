@@ -142,7 +142,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 								</li>
 
 								<!-- Logs -->
-								<li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+								<li class="menu-item menu-item-submenu <?= ($this->uri->segment(2) == 'log-session' || $this->uri->segment(2) == 'log-user') ? 'menu-item-open menu-item-here' : '';  ?>" aria-haspopup="true" data-menu-toggle="hover">
 									<a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
 											<!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
@@ -161,7 +161,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 									<div class="menu-submenu">
 										<i class="menu-arrow"></i>
 										<ul class="menu-subnav">
-											<li class="menu-item" aria-haspopup="true">
+											<li class="menu-item <?= ($this->uri->segment(2) == 'log-session') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
 												<a href="<?php echo base_url('administrator/log-session') ?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
@@ -169,7 +169,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 													<span class="menu-text">Log Sessions</span>
 												</a>
 											</li>
-											<li class="menu-item" aria-haspopup="true">
+											<li class="menu-item <?= ($this->uri->segment(2) == 'log-user') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
 												<a href="<?php echo base_url('administrator/log-user') ?>" class="menu-link">
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
