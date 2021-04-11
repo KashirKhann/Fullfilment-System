@@ -1,9 +1,9 @@
 <?php
-    $adminsArr = [];
-    $customersArr = [];
-    $i = 0;
-    $k = 0;
-    
+$adminsArr = [];
+$customersArr = [];
+$i = 0;
+$k = 0;
+
 ?>
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Entry-->
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <form class="form" action="<?php echo base_url('administrator/insert-customer-user'); ?>" method="post" enctype="multipart/form-data">
+                    <form class="form" novalidate action="<?php echo base_url('administrator/insert-customer-user'); ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <div class="col-lg-6">
                                 <div class="form-group">
@@ -51,28 +51,28 @@
                                 <div class="form-group">
                                     <h5>Select the user parent:</h5>
                                 </div>
-                               
+
                                 <div class="col-md-6">
-                                     <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
+                                    <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
                                     <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
                                         <option value="">-- Select --</option>
                                         <?php
-                                        if($this->session->userdata('user_group') != 'SuperAdmin'){
+                                        if ($this->session->userdata('role') != 'SuperAdmin') {
                                         ?>
-                                        <option value="<?= $this->session->userdata('id') ?>"><?= $this->session->userdata('email') ?></option>
+                                            <option value="<?= $this->session->userdata('id') ?>"><?= $this->session->userdata('email') ?></option>
                                         <?php
                                         }
                                         ?>
-                                        <?php 
+                                        <?php
                                         foreach ($getAllUsers as $getAllUser) {
-                                            if($getAllUser->user_group == 'Admin'){
-                                                ?>
+                                            if ($getAllUser->user_group == 'Admin') {
+                                        ?>
                                                 <option class="admin_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
-                                                <?php
-                                            }elseif ($getAllUser->user_group == 'Customer') {
-                                                ?>
+                                            <?php
+                                            } elseif ($getAllUser->user_group == 'Customer') {
+                                            ?>
                                                 <option class="customer_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
-                                                <?php
+                                        <?php
                                             }
                                         }
                                         ?>

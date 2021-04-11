@@ -17,13 +17,14 @@
                         <div class="form-group row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <h5>Select the user type you want to add:</h5>
+                                    <h5>Your current User Group:</h5>
                                 </div>
                                 <label style="margin-right: 0.5em;">User Group:</label>
-                                <div class="dropdown bootstrap-select form-control col-md-4">
-                                    <select class="form-control selectpicker" data-size="5" tabindex="null" name="user_group" id="user_group">
+                                <div class="col-md-4">
+                                    <h6 class="form-control"><?= $customer_user->user_group ?></h6>
+                                    <!-- <select class="form-control selectpicker" data-size="5" tabindex="null" name="user_group" id="user_group">
                                         <option value="<?= $customer_user->user_group ?>"><?= $customer_user->user_group ?></option>
-                                    </select>
+                                    </select> -->
                                 </div>
                                 <span class="form-text text-muted">Please select user group</span>
                             </div>

@@ -233,9 +233,13 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 							<div class="dropdown">
 								<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<!-- Dropdown button -->
-									<!-- <div class="btn btn-icon btn-light-primary h-40px w-40px p-0" id=""> -->
-									<img src="<?php echo base_url('uploads/' . $customer->profile_avatar); ?>" class="h-40px align-self-end" alt="" style="border-radius: 25px;" />
+									<!-- <img src="<?php echo base_url('uploads/' . $customer->profile_avatar); ?>" class="h-40px align-self-end" alt="" style="border-radius: 25px;" /> -->
 									<!-- </div> -->
+									<?php if (isset($customer->profile_avatar) && !empty($customer->profile_avatar)) { ?>
+										<img src="<?php echo base_url('uploads/' . $customer->profile_avatar); ?>" alt="..." class="h-40px align-self-end" style="border-radius: 25px;">
+									<?php } else { ?>
+										<img src="<?php echo base_url(''); ?>assets/backend/media/svg/avatars/001-boy.svg" alt="..." class="h-40px align-self-end" style="border-radius: 25px;">
+									<?php } ?>
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 									<a class="dropdown-item" href="<?php echo base_url('administrator/settings'); ?>">

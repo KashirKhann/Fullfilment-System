@@ -57,8 +57,8 @@
                                 <th>Email</th>
                                 <th>Country</th>
                                 <th>User Group</th>
-                                <th>Created By</th>
                                 <th>Parent</th>
+                                <th>Created By</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>

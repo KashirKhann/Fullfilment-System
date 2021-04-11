@@ -94,16 +94,16 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- Add customer -->
 <script type="text/javascript">
-	$(document).ready(()=>{
-	$(document).on('change', '#user_group', function() {
-		changeAddUserFormData();
-		});
-		
-		$(document).ready(()=>{
+	$(document).ready(() => {
+		$(document).on('change', '#user_group', function() {
 			changeAddUserFormData();
 		});
 
-		function changeAddUserFormData(){
+		$(document).ready(() => {
+			changeAddUserFormData();
+		});
+
+		function changeAddUserFormData() {
 			value = $('#user_group').val();
 			if (value == 'SuperAdmin') {
 				$('.super_emp_div').show('slow');
@@ -117,45 +117,47 @@
 				$('.super_emp_div').show('slow');
 				$('.admin_div').hide('slow');
 				$('.assignparent').show('slow');
+				$('.assignparent').css('opacity', 1);
 				$('.admin_options').hide();
 				$('.customer_options').show();
 
 			}
 			if (value == 'Admin') {
 				$('.admin_div').show('slow');
-				$('.assignparent').hide('slow');
+				$('.assignparent').css('opacity', 0);
 				$('.admin_options').hide();
 				$('.customer_options').hide();
 			}
 			if (value == 'Customer') {
 				$('.admin_div').show();
 				$('.assignparent').show();
+				$('.assignparent').css('opacity', 1);
 				$('.admin_options').show();
 				$('.customer_options').hide();
 			}
 		}
 
-		
+
 		$(document).on('click', '.deleteBtn', function(e) {
 			e.preventDefault();
 			Swal.fire({
-				  title: 'Are you sure?',
-				  text: "You won't be able to revert this!",
-				  icon: 'warning',
-				  showCancelButton: true,
-				  confirmButtonColor: '#3085d6',
-				  cancelButtonColor: '#d33',
-				  confirmButtonText: 'Yes, delete it!'
-				}).then((result) => {
-				  if (result.isConfirmed) {
-				    Swal.fire(
-				      'Deleted!',
-				      'Your file has been deleted.',
-				      'success'
-				    )
-				    window.location.href = $(this).attr('href');
-				  }
-				})
+				title: 'Are you sure?',
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes, delete it!'
+			}).then((result) => {
+				if (result.isConfirmed) {
+					Swal.fire(
+						'Deleted!',
+						'Your file has been deleted.',
+						'success'
+					)
+					window.location.href = $(this).attr('href');
+				}
+			})
 		});
 	});
 </script>
@@ -163,13 +165,13 @@
 
 
 <?php
-	if ($this->uri->segment(2) === 'edit_customer_user'){
+if ($this->uri->segment(2) === 'edit_customer_user') {
 ?>
-<script type="text/javascript">
-    jQuery(document).ready(()=>{
-        jQuery('#user_parent').val('<?= $customer_user->which_admin ?>');
-    });
-</script>
+	<script type="text/javascript">
+		jQuery(document).ready(() => {
+			jQuery('#user_parent').val('<?= $customer_user->which_admin ?>');
+		});
+	</script>
 <?php
 }
 ?>
