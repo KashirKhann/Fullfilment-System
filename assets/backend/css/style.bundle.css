@@ -21112,6 +21112,11 @@ a.text-danger:hover, a.text-danger:focus {
   color: #F3F6F9 !important;
 }
 
+.view-data {
+  border-bottom: 2px solid #d1d1d1;
+  width: 100%;
+}
+
 a.text-light:hover, a.text-light:focus {
   color: #c0d0e0 !important;
 }
