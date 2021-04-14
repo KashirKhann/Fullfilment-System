@@ -20,6 +20,18 @@ $k = 0;
                     </div>
                 </div>
                 <div class="card-body">
+                    <?php if ($this->session->flashdata('success')) { ?>
+                        <div class="alert alert-success">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <?php echo $this->session->flashdata('success'); ?>
+                        </div>
+                    <?php } ?>
+                    <?php if ($this->session->flashdata('error')) { ?>
+                        <div class="alert alert-danger">
+                            <a href="#" class="close" data-dismiss="alert">&times;</a>
+                            <?php echo $this->session->flashdata('error'); ?>
+                        </div>
+                    <?php } ?>
                     <form class="form" novalidate action="<?php echo base_url('administrator/insert-customer-user'); ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group row">
                             <div class="col-lg-6">

@@ -14,6 +14,8 @@ class Admin_controller extends CI_Controller
 			$this->session->set_flashdata('error', 'You are not logged in !');
 			redirect(base_url(''));
 		}
+		$this->load->library('form_validation');
+
 	}
 
 	/*Dashboard*/
@@ -38,13 +40,25 @@ class Admin_controller extends CI_Controller
 
 	public function insert_customer_user()
 	{
-		$this->Customer_user_model->insert_customer_user($_POST);
-		$this->session->set_flashdata('success', 'User addedd successfully!');
-		redirect('administrator/users');
+		$this->notAllowEmployee();
+		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[customer_user.email]');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('firstname', 'First name', 'required');
+	    if ($this->form_validation->run() == TRUE)
+        {
+        	$this->Customer_user_model->insert_customer_user($_POST);
+			$this->session->set_flashdata('success', 'User addedd successfully!');
+			redirect('administrator/users');
+        }else{
+        	$this->session->set_flashdata('success',  validation_errors());
+        	redirect('/administrator/add_user');
+        }
+		
 	}
 
 	public function view_customer_user($id)
 	{
+		$this->notAllowEmployee();
 		$data['customer_user'] = $this->Customer_user_model->get_customer_user($id);
 		$this->load->view('backend/common/header');
 		$this->load->view('backend/users/view_user', $data);
@@ -53,6 +67,7 @@ class Admin_controller extends CI_Controller
 
 	public function add_user()
 	{
+		$this->notAllowEmployee();
 		$data['getAllUsers'] = $this->Customer_user_model->getAllUsers();
 		$this->load->view('backend/common/header');
 		$this->load->view('backend/users/add_user', $data);
@@ -61,6 +76,7 @@ class Admin_controller extends CI_Controller
 
 	public function edit_customer_user($id)
 	{
+		$this->notAllowEmployee();
 		$data['customer_user'] = $this->Customer_user_model->get_customer_user($id);
 		$data['getAllUsers'] = $this->Customer_user_model->getAllUsers();
 		$this->load->view('backend/common/header');
@@ -71,6 +87,7 @@ class Admin_controller extends CI_Controller
 	/*Update customer user*/
 	public function update_customer_user()
 	{
+		$this->notAllowEmployee();
 		$data['customer_user'] = $this->Customer_user_model->update_customer_user($_POST);
 		redirect('administrator/edit_customer_user/' . $_POST['id']);
 	}
@@ -78,6 +95,7 @@ class Admin_controller extends CI_Controller
 	/*Delete customer user*/
 	public function delete_customer_user($id)
 	{
+		$this->notAllowEmployee();
 		$this->db->where('id', $id);
 		$this->db->delete('customer_user');
 		$this->session->set_flashdata('error', 'User deleted successfully!');
@@ -234,5 +252,13 @@ class Admin_controller extends CI_Controller
 		$this->session->sess_destroy();
 		$this->session->set_flashdata('error', 'You are logged out !');
 		redirect('administrator');
+	}
+
+
+
+	function notAllowEmployee(){
+		if ($this->session->userdata('role') == 'Employee') {
+			redirect(base_url(''));
+		}
 	}
 }
