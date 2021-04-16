@@ -137,6 +137,7 @@
 			}
 		}
 
+		$(".alert").delay(3000).fadeOut(800);
 
 		$(document).on('click', '.deleteBtn', function(e) {
 			e.preventDefault();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2021 at 06:59 AM
+-- Generation Time: Apr 16, 2021 at 07:09 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -55,7 +55,7 @@ CREATE TABLE `customer_user` (
 --
 
 INSERT INTO `customer_user` (`id`, `firstname`, `lastname`, `email`, `user_group`, `company_name`, `street1`, `street2`, `city`, `state`, `zip_code`, `country`, `language`, `profile_avatar`, `profile_avatar_remove`, `password`, `recovery_ref`, `date_added`, `which_admin`, `created_by`) VALUES
-(1, 'Stephan', 'Raid', 'stephan@admin.com', 'SuperAdmin', '', '', '', '', '', '', '', '', '', '', 'admin@123', NULL, '2021-03-27 17:07:36', '1', NULL);
+(1, 'Stephan', 'Raid', 'stephan@admin.com', 'SuperAdmin', '', '', '', '', '', '', '', '', 'pp.jpg', '', 'admin@123', NULL, '2021-03-27 17:07:36', '1', NULL);
 
 -- --------------------------------------------------------
 
@@ -73,13 +73,6 @@ CREATE TABLE `log_session` (
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `log_session`
---
-
-INSERT INTO `log_session` (`id`, `firstname`, `email`, `role`, `user_id`, `created_on`, `type`) VALUES
-(1, 'Stephan', 'stephan@admin.com', 'SuperAdmin', 1, '2021-04-12 09:58:38', 'login');
-
 -- --------------------------------------------------------
 
 --
@@ -95,13 +88,6 @@ CREATE TABLE `log_user` (
   `type` varchar(255) NOT NULL,
   `created_on` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `log_user`
---
-
-INSERT INTO `log_user` (`id`, `email`, `which_admin`, `created_by`, `customer_user_id`, `type`, `created_on`) VALUES
-(1, 'kashir123@gmail.com', '1', 1, 2, 'add', '2021-04-12 09:58:59');
 
 --
 -- Indexes for dumped tables
@@ -133,19 +119,19 @@ ALTER TABLE `log_user`
 -- AUTO_INCREMENT for table `customer_user`
 --
 ALTER TABLE `customer_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `log_session`
 --
 ALTER TABLE `log_session`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `log_user`
 --
 ALTER TABLE `log_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
