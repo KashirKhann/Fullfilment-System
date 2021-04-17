@@ -109,7 +109,7 @@ class Customer_user_model extends CI_Model
         $this->db->select('*');
         $this->db->from('customer_user');
         if ($this->session->userdata('role') != 'SuperAdmin') {
-          $this->db->where('created_by', $this->session->userdata('id'));
+            $this->db->where('created_by', $this->session->userdata('id'));
         }
         $result = $this->db->get()->result();
         return $result;
@@ -132,6 +132,7 @@ class Customer_user_model extends CI_Model
         $this->db->from('customer_user');
         if ($this->session->userdata('role') != 'SuperAdmin') {
             $this->db->where('which_admin', $this->session->userdata('id'));
+            $this->db->or_where('created_by', $this->session->userdata('id'));
         }
         $q = $this->db->get();
         if ($q->num_rows() > 0) {
@@ -139,9 +140,7 @@ class Customer_user_model extends CI_Model
             foreach ($q->result() as $row) {
                 $data[$i] = $row;
                 $data[$i]->created_name = $this->getCreatedName($row->which_admin);
-                // $data[$i]->parent_name = $this->getParentName($row->created_by);
                 $data[$i]->parent_name = $this->getCreatedName($row->created_by);
-
                 $i++;
             }
         }
@@ -159,7 +158,7 @@ class Customer_user_model extends CI_Model
         } else {
             return '';
         }
-    } 
+    }
 
 
     function getParentName($id)
@@ -173,7 +172,7 @@ class Customer_user_model extends CI_Model
             $this->db->from('customer_user');
             $this->db->where('id',  $q->result()[0]->which_admin);
             $k = $this->db->get();
-            return $k->result()[0]->firstname.' '.$k->result()[0]->lastname;
+            return $k->result()[0]->firstname . ' ' . $k->result()[0]->lastname;
         } else {
             return '';
         }
