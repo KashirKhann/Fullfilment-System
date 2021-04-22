@@ -15,7 +15,6 @@ class Admin_controller extends CI_Controller
 			redirect(base_url(''));
 		}
 		$this->load->library('form_validation');
-
 	}
 
 	/*Dashboard*/
@@ -44,25 +43,29 @@ class Admin_controller extends CI_Controller
 		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[customer_user.email]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('firstname', 'First name', 'required');
-	    if ($this->form_validation->run() == TRUE)
-        {
-        	$this->Customer_user_model->insert_customer_user($_POST);
+		$this->form_validation->set_rules('user_parent', 'User parent', 'required');
+		if ($this->form_validation->run() == TRUE) {
+			$this->Customer_user_model->insert_customer_user($_POST);
 			$this->session->set_flashdata('success', 'User addedd successfully!');
 			redirect('administrator/users');
-        }else{
-        	$this->session->set_flashdata('success',  validation_errors());
-        	redirect('/administrator/add_user');
-        }
-		
+		} else {
+			$this->session->set_flashdata('success',  validation_errors());
+			redirect('/administrator/add_user');
+		}
 	}
 
 	public function view_customer_user($id)
 	{
 		$this->notAllowEmployee();
-		$data['customer_user'] = $this->Customer_user_model->get_customer_user($id);
-		$this->load->view('backend/common/header');
-		$this->load->view('backend/users/view_user', $data);
-		$this->load->view('backend/common/footer');
+		if ($this->Customer_user_model->get_customer_user($id) == true) {
+			$data['customer_user'] = $this->Customer_user_model->get_customer_user($id);
+			$this->load->view('backend/common/header');
+			$this->load->view('backend/users/view_user', $data);
+			$this->load->view('backend/common/footer');
+		} else {
+			$this->session->set_flashdata('error', 'Access your Users, Else will be blocked !');
+			redirect('');
+		}
 	}
 
 	public function add_user()
@@ -173,9 +176,9 @@ class Admin_controller extends CI_Controller
 	// Logs User 
 	public function log_user()
 	{
-		if($this->session->userdata('role') != 'SuperAdmin'){
+		if ($this->session->userdata('role') != 'SuperAdmin') {
 			$getValues = $this->Logs_model->get_childrens();
-		}else{
+		} else {
 			$getValues = '';
 		}
 		$data['log_user'] = $this->Logs_model->log_user($getValues);
@@ -187,9 +190,9 @@ class Admin_controller extends CI_Controller
 	// Logs Session 
 	public function log_session()
 	{
-		if($this->session->userdata('role') != 'SuperAdmin'){
+		if ($this->session->userdata('role') != 'SuperAdmin') {
 			$getValues = $this->Logs_model->get_childrens();
-		}else{
+		} else {
 			$getValues = '';
 		}
 		$data['log_session'] = $this->Logs_model->log_session($getValues);
@@ -256,7 +259,8 @@ class Admin_controller extends CI_Controller
 
 
 
-	function notAllowEmployee(){
+	function notAllowEmployee()
+	{
 		if ($this->session->userdata('role') == 'Employee') {
 			redirect(base_url(''));
 		}

@@ -120,6 +120,15 @@ class Customer_user_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('customer_user');
+        if ($this->session->userdata('role') == 'Admin') {
+            // $this->db->or_where('user_group !=', 'Admin');
+            $this->db->where('user_group !=', 'SuperAdmin');
+        }
+        if ($this->session->userdata('role') == 'Customer') {
+            // $this->db->where('user_group !=', 'Admin');
+            // $this->db->or_where('user_group !=', 'SuperAdmin');
+            $this->db->where('which_admin', $this->session->userdata('id'));
+        }
         $this->db->where('id', $id);
         $result = $this->db->get()->row();
         return $result;
