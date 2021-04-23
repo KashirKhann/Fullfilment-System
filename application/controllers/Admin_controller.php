@@ -63,7 +63,7 @@ class Admin_controller extends CI_Controller
 			$this->load->view('backend/users/view_user', $data);
 			$this->load->view('backend/common/footer');
 		} else {
-			$this->session->set_flashdata('error', 'Access your Users, Else will be blocked !');
+			$this->session->set_flashdata('error', 'Access your Users, Else system will block your Account !');
 			redirect('');
 		}
 	}
