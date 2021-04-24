@@ -61,7 +61,7 @@ $k = 0;
                             </div>
                             <div class="col-lg-6 assignparent">
                                 <div class="form-group">
-                                    <h5>Select the user parent:</h5>
+                                    <h5>Select the user parent: <span class="required_field">*</span></h5>
                                 </div>
 
                                 <div class="col-md-6">
@@ -104,7 +104,7 @@ $k = 0;
                                 <span class="form-text text-muted">Please enter your Last Name</span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Email:</label>
+                                <label>Email: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="email" class="form-control" placeholder="Please enter your Email" name="email" value="" />
                                     <div class="input-group-append"><span class="input-group-text"><i class="flaticon-multimedia"></i></span></div>
@@ -112,7 +112,7 @@ $k = 0;
                                 <span class="form-text text-muted">Please enter your Email</span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Password:</label>
+                                <label>Password: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="password" class="form-control" placeholder="Enter your Password" name="password" value="" />
                                     <div class="input-group-append"></div>
@@ -122,14 +122,14 @@ $k = 0;
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>Company Name:</label>
+                                <label>Company Name: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Please enter your company name" name="company_name" value="" />
                                 </div>
                                 <span class="form-text text-muted">Please enter your Company Name</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Street Line 1:</label>
+                                <label>Street Line 1: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter your Street line 1" name="street1" value="" />
                                     <div class="input-group-append"></div>
@@ -137,7 +137,7 @@ $k = 0;
                                 <span class="form-text text-muted">Please enter your Street Line 1</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Street Line 2: <span class="required_field">*</span></label>
+                                <label>Street Line 2:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter your Street line 2" name="street2" value="" />
                                     <div class="input-group-append"></div>
@@ -147,7 +147,7 @@ $k = 0;
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>City:</label>
+                                <label>City: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter your city" name="city" value="" />
                                     <div class="input-group-append"></div>
@@ -155,7 +155,7 @@ $k = 0;
                                 <span class="form-text text-muted">Please enter your city</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>State: <span class="required_field">*</span></label>
+                                <label>State:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter your State" name="state" value="" />
                                     <div class="input-group-append"></div>
@@ -163,7 +163,7 @@ $k = 0;
                                 <span class="form-text text-muted">Please enter your State</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Zip Code:</label>
+                                <label>Zip Code: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="number" class="form-control" placeholder="Enter your Zip Code" name="zip_code" value="" />
                                     <div class="input-group-append"></div>
@@ -173,7 +173,7 @@ $k = 0;
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>Country:</label>
+                                <label>Country: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Enter your Country" name="country" value="" />
                                     <div class="input-group-append"></div>
@@ -181,7 +181,7 @@ $k = 0;
                                 <span class="form-text text-muted">Please enter your Country</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Language:</label>
+                                <label>Language: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <div class="dropdown bootstrap-select form-control">
                                         <select class="form-control selectpicker" data-size="5" tabindex="null" name="language">

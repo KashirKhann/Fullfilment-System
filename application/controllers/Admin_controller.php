@@ -43,13 +43,20 @@ class Admin_controller extends CI_Controller
 		$this->form_validation->set_rules('email', 'Email', 'required|is_unique[customer_user.email]');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('firstname', 'First name', 'required');
+		$this->form_validation->set_rules('lastname', 'Last name', 'required');
+		$this->form_validation->set_rules('company_name', 'Company name', 'required');
+		$this->form_validation->set_rules('street1', 'street 1', 'required');
+		$this->form_validation->set_rules('zip_code', 'Zip Code', 'required');
+		$this->form_validation->set_rules('city', 'City', 'required');
+		$this->form_validation->set_rules('country', 'Country', 'required');
+		$this->form_validation->set_rules('language', 'Language', 'required');
 		$this->form_validation->set_rules('user_parent', 'User parent', 'required');
 		if ($this->form_validation->run() == TRUE) {
 			$this->Customer_user_model->insert_customer_user($_POST);
 			$this->session->set_flashdata('success', 'User addedd successfully!');
 			redirect('administrator/users');
 		} else {
-			$this->session->set_flashdata('success',  validation_errors());
+			$this->session->set_flashdata('error',  validation_errors());
 			redirect('/administrator/add_user');
 		}
 	}
