@@ -65,7 +65,6 @@ $k = 0;
                                 </div>
 
                                 <div class="col-md-6">
-                                    <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
                                     <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
                                         <option value="">-- Select --</option>
                                         <?php if ($this->session->userdata('role') != 'SuperAdmin') { ?>

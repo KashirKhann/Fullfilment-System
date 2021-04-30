@@ -109,35 +109,35 @@
 				$('.super_emp_div').show('slow');
 				$('.admin_div').hide('slow');
 				$('.assignparent').hide('slow');
-				$('.admin_options').hide();
-				$('.customer_options').hide();
+				$('.admin_options').hide('slow');
+				$('.customer_options').hide('slow');
 
 			}
 			if (value == 'Employee') {
 				$('.super_emp_div').show('slow');
 				$('.admin_div').hide('slow');
+				// $('.assignparent').css('opacity', 1);
 				$('.assignparent').show('slow');
-				$('.assignparent').css('opacity', 1);
-				$('.admin_options').hide();
-				$('.customer_options').show();
-
+				$('.admin_options').show('slow');
+				$('.customer_options').hide('slow');
 			}
 			if (value == 'Admin') {
 				$('.admin_div').show('slow');
-				$('.assignparent').css('opacity', 0);
-				$('.admin_options').hide();
-				$('.customer_options').hide();
+				// $('.assignparent').css('opacity', 0);
+				$('.assignparent').hide('slow');
+				$('.admin_options').hide('slow');
+				$('.customer_options').hide('slow');
 			}
 			if (value == 'Customer') {
-				$('.admin_div').show();
-				$('.assignparent').show();
-				$('.assignparent').css('opacity', 1);
-				$('.admin_options').show();
-				$('.customer_options').hide();
+				$('.admin_div').show('slow');
+				// $('.assignparent').css('opacity', 1);
+				$('.assignparent').show('slow');
+				$('.admin_options').show('slow');
+				$('.customer_options').hide('slow');
 			}
 		}
 
-		$(".alert").delay(3000).fadeOut(800);
+		$(".alert").delay(15000).fadeOut(900);
 
 		$(document).on('click', '.deleteBtn', function(e) {
 			e.preventDefault();
