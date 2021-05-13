@@ -60,7 +60,7 @@ $autoload['packages'] = array();
 */
 $autoload['libraries'] = array('database', 'email', 'session');
 
-/*
+/* 
 | -------------------------------------------------------------------
 |  Auto-load Drivers
 | -------------------------------------------------------------------
@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url', 'file');
+$autoload['helper'] = array('url', 'form', 'cookie', 'language', 'file');
 
 /*
 | -------------------------------------------------------------------

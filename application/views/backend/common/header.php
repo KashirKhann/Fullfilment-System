@@ -133,7 +133,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 											</g>
 										</svg>
 									</span>
-									<span class="menu-text">Dashboard</span>
+									<span class="menu-text"><?=$this->lang->line('dashboard')?></span>
 								</a>
 							</li>
 							<?php
@@ -152,7 +152,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 											</svg>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-text">Users</span>
+										<span class="menu-text"><?=$this->lang->line('users')?></span>
 									</a>
 								</li>
 
@@ -170,7 +170,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 											</svg>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-text">Logs History</span>
+										<span class="menu-text"><?=$this->lang->line('log_history')?></span>
 										<i class="menu-arrow"></i>
 									</a>
 									<div class="menu-submenu">
@@ -181,7 +181,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">Log Sessions</span>
+													<span class="menu-text"><?=$this->lang->line('log_sessions')?></span>
 												</a>
 											</li>
 											<li class="menu-item <?= ($this->uri->segment(2) == 'log-user') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
@@ -189,7 +189,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text">Log User</span>
+													<span class="menu-text"><?=$this->lang->line('log_user')?></span>
 												</a>
 											</li>
 										</ul>
@@ -245,6 +245,53 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 						<!--end::Header Menu Wrapper-->
 						<!--begin::Topbar-->
 						<div class="topbar">
+                             <div class="dropdown">
+								<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<!-- Dropdown button -->
+									<?php
+                                    if($this->session->userdata('site_lang') == 'english'){
+                                    ?>
+                                    <img class="h-20px w-20px rounded-sm" src="<?=base_url('assets')?>/backend/media/226-united-states.svg" alt="" />
+                                    <?php
+                                    }else if($this->session->userdata('site_lang') == 'german'){
+                                    ?>
+                                    <img class="h-20px w-20px rounded-sm" src="<?=base_url('assets')?>/backend/media/017-germany.svg" alt="" />
+                                    <?php
+                                    }
+                                    ?>
+									<!-- </div> -->
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding: 0;">
+									<?php
+                                    if($this->session->userdata('site_lang') != 'english'){
+                                    ?>
+									<div class="langswitcher">
+										<a href="<?php echo base_url("dashboard/switchLang/english"); ?>" class="navi-link">
+										<span class="symbol symbol-20 mr-3">
+											<img src="<?=base_url('assets')?>/backend/media/226-united-states.svg" alt="" />
+										</span>
+										<span class="navi-text">English</span>
+									</a>
+									</div>
+									<?php
+									}
+									?>
+									<?php
+                                    if($this->session->userdata('site_lang') != 'german'){
+                                    ?>
+									<div class="langswitcher">
+										<a href="<?php echo base_url("dashboard/switchLang/german"); ?>" class="navi-link">
+										<span class="symbol symbol-20 mr-3">
+											<img src="<?=base_url('assets')?>/backend/media/017-germany.svg" alt="" />
+										</span>
+										<span class="navi-text">German</span>
+									</a>
+									</div>
+									<?php
+									}
+									?>
+								</div>
+							</div>
 							<div class="dropdown">
 								<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<!-- Dropdown button -->
@@ -267,6 +314,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 									</a>
 								</div>
 							</div>
+							
 							<!--end::User-->
 							<!--begin::Chat-->
 

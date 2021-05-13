@@ -9,6 +9,8 @@ class Admin_controller extends CI_Controller
 		parent::__construct();
 		$this->load->model('Customer_user_model');
 		$this->load->model('Logs_model');
+		$this->load->helper('language');
+        $this->lang->load('global',$this->session->userdata('site_lang'));
 		$session = $this->session->userdata('email');
 		if (empty($session)) {
 			$this->session->set_flashdata('error', 'You are not logged in !');

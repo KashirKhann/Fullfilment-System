@@ -11,6 +11,8 @@ class Login_controller extends CI_Controller
 		$this->load->helper('string');
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
+		$this->load->helper('language');
+        $this->lang->load('global',$this->session->userdata('site_lang'));
 	}
 
 	/* Login Page */
@@ -33,7 +35,8 @@ class Login_controller extends CI_Controller
 				'firstname' => $user->firstname,
 				'email' => $user->email,
 				'role' => $user->user_group,
-				'id' => $user->id
+				'id' => $user->id,
+				'site_lang' => 'english'
 			);
 			// Inserting the data into the logs 
 			$this->db->insert('log_session', array(
@@ -41,7 +44,7 @@ class Login_controller extends CI_Controller
 				'email' => $user->email,
 				'type' => 'login',
 				'role' => $user->user_group,
-				'user_id' => $user->id
+				'user_id' => $user->id,
 			));
 			$this->session->set_userdata($session_data);
 			$this->session->set_flashdata('success', 'Welcome ' . $user->firstname . ' !');

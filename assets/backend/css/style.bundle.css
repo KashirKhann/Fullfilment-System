@@ -80703,3 +80703,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield !important;
 }
+
+.langswitcher{
+  padding: 8px 18px;
+    border-top: 1px solid #000;
+}
+
+
+.langswitcher:hover{
+  background: #242939;
+}
