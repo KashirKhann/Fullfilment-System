@@ -12,7 +12,7 @@ class Login_controller extends CI_Controller
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
 		$this->load->helper('language');
-        $this->lang->load('global',$this->session->userdata('site_lang'));
+		$this->lang->load('global', $this->session->userdata('site_lang'));
 	}
 
 	/* Login Page */
@@ -30,13 +30,19 @@ class Login_controller extends CI_Controller
 		$this->db->where('password', $_POST['password']);
 		$user = $this->db->get()->row();
 
+		if ($user->language == 'de') {
+			$user->language = 'german';
+		} else {
+			$user->language = 'english';
+		}
+
 		if (isset($user) && !empty($user)) {
 			$session_data  = array(
 				'firstname' => $user->firstname,
 				'email' => $user->email,
 				'role' => $user->user_group,
 				'id' => $user->id,
-				'site_lang' => 'english'
+				'site_lang' => $user->language
 			);
 			// Inserting the data into the logs 
 			$this->db->insert('log_session', array(
@@ -127,7 +133,7 @@ class Login_controller extends CI_Controller
 		// print_r($to_email);
 		// exit();
 		$this->email->set_newline("\r\n");
-		$this->email->from('GYM');
+		$this->email->from('Fullfillment-System');
 		$this->email->to($to_email);
 		$this->email->subject('Reset Your Password');
 		$this->email->message($message);

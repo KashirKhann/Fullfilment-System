@@ -79,7 +79,7 @@
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_last_name') ?></span>
                             </div>
                             <div class="col-lg-3">
-                                <label><?= $this->lang->line('email') ?>:</label>
+                                <label><?= $this->lang->line('email') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="email" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_email') ?>" name="email" value="<?= $customer_user->email ?>" />
                                     <div class="input-group-append"><span class="input-group-text"><i class="flaticon-multimedia"></i></span></div>
@@ -87,7 +87,7 @@
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_email') ?></span>
                             </div>
                             <div class="col-lg-3">
-                                <label><?= $this->lang->line('password') ?>:</label>
+                                <label><?= $this->lang->line('password') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input type="password" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_password') ?>" name="password" value="<?= $customer_user->password ?>" />
                                     <div class="input-group-append"></div>
@@ -112,7 +112,7 @@
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_street_line_1') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('street_line_2') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('street_line_2') ?>:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_street_line_2') ?>" name="street2" value="<?= $customer_user->street2 ?>" />
                                     <div class="input-group-append"></div>
@@ -130,7 +130,7 @@
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_city') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('state') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('state') ?>:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_state') ?>" name="state" value="<?= $customer_user->state ?>" />
                                     <div class="input-group-append"></div>

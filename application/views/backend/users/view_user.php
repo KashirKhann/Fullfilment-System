@@ -59,11 +59,11 @@
 
                         <div class="form-group row super_emp_div">
                             <div class="col-lg-3">
-                                <label><?= $this->lang->line('first_name') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('first_name') ?>:</label>
                                 <input readonly type="text" class="form-control" placeholder="Please enter your First name" name="firstname" value="<?= $customer_user->firstname ?>" />
                             </div>
                             <div class="col-lg-3">
-                                <label><?= $this->lang->line('last_name') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('last_name') ?>:</label>
                                 <input readonly type="text" class="form-control" placeholder="Please enter your Last name" name="lastname" value="<?= $customer_user->lastname ?>" />
                             </div>
                             <div class="col-lg-3">
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('street_line_2') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('street_line_2') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Enter your Street line 2" name="street2" value="<?= $customer_user->street2 ?>" />
                                     <div class="input-group-append"></div>
@@ -112,7 +112,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('state') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('state') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Enter your State" name="state" value="<?= $customer_user->state ?>" />
                                     <div class="input-group-append"></div>

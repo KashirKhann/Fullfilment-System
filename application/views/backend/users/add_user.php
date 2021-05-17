@@ -122,14 +122,14 @@ $k = 0;
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('company_name') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('company_name') ?>:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_company_name') ?>" name="company_name" value="" />
                                 </div>
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_company_name') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('street_line_1') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('street_line_1') ?>:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_street_line_1') ?>" name="street1" value="" />
                                     <div class="input-group-append"></div>
@@ -147,7 +147,7 @@ $k = 0;
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('city') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('city') ?>:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_city') ?>" name="city" value="" />
                                     <div class="input-group-append"></div>
@@ -163,7 +163,7 @@ $k = 0;
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_state') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('zip_code') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('zip_code') ?>:</label>
                                 <div class="input-group">
                                     <input type="number" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_zip_code') ?>" name="zip_code" value="" />
                                     <div class="input-group-append"></div>
@@ -173,7 +173,7 @@ $k = 0;
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('country') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('country') ?>:</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_country') ?>" name="country" value="" />
                                     <div class="input-group-append"></div>
@@ -181,7 +181,7 @@ $k = 0;
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_country') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label><?= $this->lang->line('language') ?>: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('language') ?>:</label>
                                 <div class="input-group">
                                     <div class="dropdown bootstrap-select form-control">
                                         <select class="form-control selectpicker" data-size="5" tabindex="null" name="language">
