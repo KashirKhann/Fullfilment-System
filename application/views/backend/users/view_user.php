@@ -8,7 +8,7 @@
             <div class="card card-custom gutter-b">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">View User <span class="form-text text-muted">View your Information.</span>
+                        <h3 class="card-label"><?= $this->lang->line('view_user') ?> <span class="form-text text-muted"><?= $this->lang->line('view_your_information') ?>.</span>
                         </h3>
                     </div>
                 </div>
@@ -17,52 +17,41 @@
                         <input type="hidden" value="<?php echo $customer_user->id; ?>" name="id">
                         <div class="form-group row">
                             <div class="col-lg-6">
-                                <div class="form-group">
-                                    <h5>Select the user type you want to add:</h5>
-                                </div>
-                                <label style="margin-right: 0.5em;">User Group:</label>
-                                <!-- <div class="col-lg-4"> -->
+                                <label style="margin-right: 0.5em;"><?= $this->lang->line('user_group') ?>:</label>
                                 <select class="form-control col-lg-4" data-size="5" tabindex="null" name="user_group" id="user_group" readonly>
                                     <option value="<?= $customer_user->user_group ?>"><?= $customer_user->user_group ?></option>
                                 </select>
-                                <!-- </div> -->
-                                <span class="form-text text-muted">Please select user group</span>
                             </div>
                             <div class="col-lg-6 assignparent">
-                                <div class="form-group">
-                                    <h5>Select the user parent:</h5>
-                                </div>
-                               
                                 <div class="col-md-6">
-                                     <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
                                     <?php
-                                    if($customer_user->user_group == 'Admin'){
+                                    if ($customer_user->user_group == 'Admin') {
                                     ?>
-                                    <input type="hidden" name="user_parent">
+                                        <input type="hidden" name="user_parent">
                                     <?php
-                                    }else{
+                                    } else {
                                     ?>
-                                    <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
-                                        <option value="">-- Select --</option>
-                                        <?php 
-                                        foreach ($getAllUsers as $getAllUser) {
-                                            if($getAllUser->user_group == 'Admin'){
-                                                ?>
-                                                <option class="admin_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                        <label style="margin-right: 0.5em;"><?= $this->lang->line('user_parent') ?>:</label>
+                                        <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
+                                            <option value="">-- Select --</option>
+                                            <?php
+                                            foreach ($getAllUsers as $getAllUser) {
+                                                if ($getAllUser->user_group == 'Admin') {
+                                            ?>
+                                                    <option class="admin_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
                                                 <?php
-                                            }elseif ($getAllUser->user_group == 'Customer') {
+                                                } elseif ($getAllUser->user_group == 'Customer') {
                                                 ?>
-                                                <option class="customer_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
-                                                <?php
+                                                    <option class="customer_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                            <?php
+                                                }
                                             }
-                                        }
-                                        ?>
-                                    </select>
+                                            ?>
+                                        </select>
                                     <?php
                                     }
                                     ?>
                                 </div>
-                                <span class="form-text text-muted">Please select parent</span>
                             </div>
                         </div>
 
@@ -70,94 +59,83 @@
 
                         <div class="form-group row super_emp_div">
                             <div class="col-lg-3">
-                                <label>First Name: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('first_name') ?>: <span class="required_field">*</span></label>
                                 <input readonly type="text" class="form-control" placeholder="Please enter your First name" name="firstname" value="<?= $customer_user->firstname ?>" />
-                                <span class="form-text text-muted">Please enter your First Name</span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Last Name: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('last_name') ?>: <span class="required_field">*</span></label>
                                 <input readonly type="text" class="form-control" placeholder="Please enter your Last name" name="lastname" value="<?= $customer_user->lastname ?>" />
-                                <span class="form-text text-muted">Please enter your Last Name</span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Email:</label>
+                                <label><?= $this->lang->line('email') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="email" class="form-control" placeholder="Please enter your Email" name="email" value="<?= $customer_user->email ?>" />
                                     <div class="input-group-append"><span class="input-group-text"><i class="flaticon-multimedia"></i></span></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Email</span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Password:</label>
+                                <label><?= $this->lang->line('password') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="password" class="form-control" placeholder="Enter your Password" name="password" value="<?= $customer_user->password ?>" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Password</span>
                             </div>
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>Company Name:</label>
+                                <label><?= $this->lang->line('company_name') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Please enter your company name" name="company_name" value="<?= $customer_user->company_name ?>" />
                                 </div>
-                                <span class="form-text text-muted">Please enter your Company Name</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Street Line 1:</label>
+                                <label><?= $this->lang->line('street_line_1') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Enter your Street line 1" name="street1" value="<?= $customer_user->street1 ?>" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Street Line 1</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Street Line 2: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('street_line_2') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Enter your Street line 2" name="street2" value="<?= $customer_user->street2 ?>" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Street Line 2</span>
                             </div>
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>City:</label>
+                                <label><?= $this->lang->line('city') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Enter your city" name="city" value="<?= $customer_user->city ?>" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your city</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>State: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('state') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Enter your State" name="state" value="<?= $customer_user->state ?>" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your State</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Zip Code:</label>
+                                <label><?= $this->lang->line('zip_code') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="number" class="form-control" placeholder="Enter your Zip Code" name="zip_code" value="<?= $customer_user->zip_code ?>" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Zip Code</span>
                             </div>
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>Country:</label>
+                                <label><?= $this->lang->line('country') ?>:</label>
                                 <div class="input-group">
                                     <input readonly type="text" class="form-control" placeholder="Enter your Country" name="country" value="<?= $customer_user->country ?>" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Country</span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Language:</label>
+                                <label><?= $this->lang->line('language') ?>:</label>
                                 <div class="input-group">
                                     <div class="dropdown bootstrap-select form-control">
                                         <select disabled="" class="form-control selectpicker" data-size="5" tabindex="null" name="language">
@@ -165,14 +143,13 @@
                                             <option value="en">English</option>
                                             <option value="de">German</option>
                                         </select>
-                                        <span class="form-text text-muted">Please enter your Language</span>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-4">Photo</label>
+                            <label class="col-form-label col-4"><?= $this->lang->line('photo') ?></label>
                             <div class="col-12">
                                 <div class="image-input image-input-empty image-input-outline" id="kt_user_edit_avatar" style="background-image: url(<?php echo base_url('uploads/' . $customer_user->profile_avatar); ?>)">
                                     <div class="image-input-wrapper"></div>

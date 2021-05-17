@@ -133,7 +133,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 											</g>
 										</svg>
 									</span>
-									<span class="menu-text"><?=$this->lang->line('dashboard')?></span>
+									<span class="menu-text"><?= $this->lang->line('dashboard') ?></span>
 								</a>
 							</li>
 							<?php
@@ -152,7 +152,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 											</svg>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-text"><?=$this->lang->line('users')?></span>
+										<span class="menu-text"><?= $this->lang->line('users') ?></span>
 									</a>
 								</li>
 
@@ -170,7 +170,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 											</svg>
 											<!--end::Svg Icon-->
 										</span>
-										<span class="menu-text"><?=$this->lang->line('log_history')?></span>
+										<span class="menu-text"><?= $this->lang->line('log_history') ?></span>
 										<i class="menu-arrow"></i>
 									</a>
 									<div class="menu-submenu">
@@ -181,7 +181,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text"><?=$this->lang->line('log_sessions')?></span>
+													<span class="menu-text"><?= $this->lang->line('log_sessions') ?></span>
 												</a>
 											</li>
 											<li class="menu-item <?= ($this->uri->segment(2) == 'log-user') ? 'menu-item-active' : '';  ?>" aria-haspopup="true">
@@ -189,7 +189,7 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 													<i class="menu-bullet menu-bullet-line">
 														<span></span>
 													</i>
-													<span class="menu-text"><?=$this->lang->line('log_user')?></span>
+													<span class="menu-text"><?= $this->lang->line('log_user') ?></span>
 												</a>
 											</li>
 										</ul>
@@ -210,7 +210,8 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 										</svg>
 										<!--end::Svg Icon-->
 									</span>
-									<span class="menu-text">Settings</span>
+									<!-- <span class="menu-text">Settings</span> -->
+									<span class="menu-text"><?= $this->lang->line('settings') ?></span>
 								</a>
 							</li>
 							<li class="menu-section">
@@ -245,48 +246,48 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 						<!--end::Header Menu Wrapper-->
 						<!--begin::Topbar-->
 						<div class="topbar">
-                             <div class="dropdown">
+							<div class="dropdown" data-toggle="tooltip" title="Select desired language" data-placement="left">
 								<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<!-- Dropdown button -->
 									<?php
-                                    if($this->session->userdata('site_lang') == 'english'){
-                                    ?>
-                                    <img class="h-20px w-20px rounded-sm" src="<?=base_url('assets')?>/backend/media/226-united-states.svg" alt="" />
-                                    <?php
-                                    }else if($this->session->userdata('site_lang') == 'german'){
-                                    ?>
-                                    <img class="h-20px w-20px rounded-sm" src="<?=base_url('assets')?>/backend/media/017-germany.svg" alt="" />
-                                    <?php
-                                    }
-                                    ?>
+									if ($this->session->userdata('site_lang') == 'english') {
+									?>
+										<img class="h-20px w-20px rounded-sm" src="<?= base_url('assets') ?>/backend/media/226-united-states.svg" alt="" />
+									<?php
+									} else if ($this->session->userdata('site_lang') == 'german') {
+									?>
+										<img class="h-20px w-20px rounded-sm" src="<?= base_url('assets') ?>/backend/media/017-germany.svg" alt="" />
+									<?php
+									}
+									?>
 									<!-- </div> -->
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="padding: 0;">
 									<?php
-                                    if($this->session->userdata('site_lang') != 'english'){
-                                    ?>
-									<div class="langswitcher">
-										<a href="<?php echo base_url("dashboard/switchLang/english"); ?>" class="navi-link">
-										<span class="symbol symbol-20 mr-3">
-											<img src="<?=base_url('assets')?>/backend/media/226-united-states.svg" alt="" />
-										</span>
-										<span class="navi-text">English</span>
-									</a>
-									</div>
+									if ($this->session->userdata('site_lang') != 'english') {
+									?>
+										<div class="langswitcher">
+											<a href="<?php echo base_url("dashboard/switchLang/english"); ?>" class="navi-link">
+												<span class="symbol symbol-20 mr-3">
+													<img src="<?= base_url('assets') ?>/backend/media/226-united-states.svg" alt="" />
+												</span>
+												<span class="navi-text"><?= $this->lang->line('english') ?></span>
+											</a>
+										</div>
 									<?php
 									}
 									?>
 									<?php
-                                    if($this->session->userdata('site_lang') != 'german'){
-                                    ?>
-									<div class="langswitcher">
-										<a href="<?php echo base_url("dashboard/switchLang/german"); ?>" class="navi-link">
-										<span class="symbol symbol-20 mr-3">
-											<img src="<?=base_url('assets')?>/backend/media/017-germany.svg" alt="" />
-										</span>
-										<span class="navi-text">German</span>
-									</a>
-									</div>
+									if ($this->session->userdata('site_lang') != 'german') {
+									?>
+										<div class="langswitcher">
+											<a href="<?php echo base_url("dashboard/switchLang/german"); ?>" class="navi-link">
+												<span class="symbol symbol-20 mr-3">
+													<img src="<?= base_url('assets') ?>/backend/media/017-germany.svg" alt="" />
+												</span>
+												<span class="navi-text">German</span>
+											</a>
+										</div>
 									<?php
 									}
 									?>
@@ -306,15 +307,15 @@ $customer = $this->db->query('select * from customer_user where id=' . $this->se
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 									<a class="dropdown-item" href="<?php echo base_url('administrator/settings'); ?>">
 										<i class="flaticon2-gear text-primary mr-2"></i>
-										Settings
+										<?= $this->lang->line('settings') ?>
 									</a>
 									<a class="dropdown-item" href="<?php echo base_url('administrator/logout'); ?>">
 										<i class="text-dark-50 flaticon-logout mr-2"></i>
-										Logout
+										<?= $this->lang->line('logout') ?>
 									</a>
 								</div>
 							</div>
-							
+
 							<!--end::User-->
 							<!--begin::Chat-->
 

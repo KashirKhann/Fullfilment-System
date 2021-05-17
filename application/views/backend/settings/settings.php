@@ -6,7 +6,7 @@
             <!--begin::Details-->
             <div class="d-flex align-items-center flex-wrap mr-2">
                 <!--begin::Title-->
-                <h5 class="text-dark font-weight-bolder mt-2 mb-2 mr-5">Settings</h5>
+                <h5 class="text-dark font-weight-bolder mt-2 mb-2 mr-5"><?= $this->lang->line('settings') ?></h5>
                 <!--end::Title-->
                 <!--begin::Separator-->
                 <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-300"></div>
@@ -55,7 +55,7 @@
                                             <!--end::Svg Icon-->
                                         </span>
                                     </span>
-                                    <span class="nav-text font-size-lg">Profile</span>
+                                    <span class="nav-text font-size-lg"><?= $this->lang->line('profile') ?></span>
                                 </a>
                             </li>
                             <!--end::Item-->
@@ -76,7 +76,7 @@
                                             <!--end::Svg Icon-->
                                         </span>
                                     </span>
-                                    <span class="nav-text font-size-lg">Change Password</span>
+                                    <span class="nav-text font-size-lg"><?= $this->lang->line('change_password') ?></span>
                                 </a>
                             </li>
                             <!--end::Item-->
@@ -97,7 +97,7 @@
                                     <!--begin::Group-->
                                     <form class="form" id="kt_form" method="post" action="<?php echo base_url('administrator/update-user'); ?>" enctype="multipart/form-data">
                                         <div class="form-group row">
-                                            <label class="col-form-label col-3 text-lg-right text-left">Photo</label>
+                                            <label class="col-form-label col-3 text-lg-right text-left"><?= $this->lang->line('photo') ?></label>
                                             <div class="col-9">
                                                 <div class="image-input image-input-empty image-input-outline" id="kt_user_edit_avatar" style="background-image: url(<?php echo base_url('uploads/' . $user->profile_avatar); ?>)">
                                                     <div class="image-input-wrapper"></div>
@@ -119,7 +119,7 @@
 
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label class="col-form-label col-3 text-lg-right text-left">First Name</label>
+                                            <label class="col-form-label col-3 text-lg-right text-left"><?= $this->lang->line('first_name') ?></label>
                                             <div class="col-9">
                                                 <input class="form-control form-control-lg form-control-solid" type="text" value="<?php echo $user->firstname ?>" name="firstname" />
                                             </div>
@@ -127,7 +127,7 @@
                                         <!--end::Group-->
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label class="col-form-label col-3 text-lg-right text-left">Last Name</label>
+                                            <label class="col-form-label col-3 text-lg-right text-left"><?= $this->lang->line('last_name') ?></label>
                                             <div class="col-9">
                                                 <input class="form-control form-control-lg form-control-solid" type="text" value="<?php echo $user->lastname ?>" name="lastname" />
                                             </div>
@@ -135,7 +135,7 @@
                                         <!--end::Group-->
                                         <!--begin::Group-->
                                         <div class="form-group row">
-                                            <label class="col-form-label col-3 text-lg-right text-left">Email Address</label>
+                                            <label class="col-form-label col-3 text-lg-right text-left"><?= $this->lang->line('email') ?></label>
                                             <div class="col-9">
                                                 <div class="input-group input-group-lg input-group-solid">
                                                     <div class="input-group-prepend">
@@ -145,11 +145,11 @@
                                                     </div>
                                                     <input type="text" class="form-control form-control-lg form-control-solid" name="email" value="<?php echo $user->email; ?>" placeholder="anna.krox@loop.com" />
                                                 </div>
-                                                <span class="form-text text-muted">We'll never share your email with anyone else.</span>
+                                                <span class="form-text text-muted"><?= $this->lang->line("We'll_never_share_your_email_with_anyone") ?>.</span>
                                             </div>
                                         </div>
                                         <!--end::Group-->
-                                        <button type="submit" class="btn btn-primary btn-pill font-weight-bold font-weight-bolder font-size-sm px-5 btn-fixed-height">Submit</button>
+                                        <button type="submit" class="btn btn-primary btn-pill font-weight-bold font-weight-bolder font-size-sm px-5 btn-fixed-height"><?= $this->lang->line('submit') ?></button>
                                     </form>
                                 </div>
                             </div>
@@ -170,32 +170,32 @@
 
                                                 <label class="col-3"></label>
                                                 <div class="col-9">
-                                                    <h6 class="text-dark font-weight-bold mb-10">Change Or Recover Your Password:</h6>
+                                                    <h6 class="text-dark font-weight-bold mb-10"><?= $this->lang->line('change_or_recover_your_password') ?>:</h6>
                                                 </div>
                                             </div>
                                             <!--end::Row-->
                                             <!--begin::Group-->
                                             <div class="form-group row">
-                                                <label class="col-form-label col-3 text-lg-right text-left">Current Password</label>
+                                                <label class="col-form-label col-3 text-lg-right text-left"><?= $this->lang->line('current_password') ?></label>
                                                 <div class="col-9">
-                                                    <input class="form-control form-control-lg form-control-solid" type="password" name="current_password" value="" placeholder="Please enter your current Password here." />
+                                                    <input class="form-control form-control-lg form-control-solid" type="password" name="current_password" value="" placeholder="<?= $this->lang->line('please_enter_your_current_password_here') ?>." />
                                                     <!-- <a href="#" class="font-weight-bold font-size-sm">Forgot password ?</a> -->
                                                 </div>
                                             </div>
                                             <!--end::Group-->
                                             <!--begin::Group-->
                                             <div class="form-group row">
-                                                <label class="col-form-label col-3 text-lg-right text-left">New Password</label>
+                                                <label class="col-form-label col-3 text-lg-right text-left"><?= $this->lang->line('new_password') ?></label>
                                                 <div class="col-9">
-                                                    <input class="form-control form-control-lg form-control-solid" type="password" value="" name="new_password" placeholder="Enter your New Password here." />
+                                                    <input class="form-control form-control-lg form-control-solid" type="password" value="" name="new_password" placeholder="<?= $this->lang->line('enter_your_new_password_here') ?>." />
                                                 </div>
                                             </div>
                                             <!--end::Group-->
                                             <!--begin::Group-->
                                             <div class="form-group row">
-                                                <label class="col-form-label col-3 text-lg-right text-left">Verify Password</label>
+                                                <label class="col-form-label col-3 text-lg-right text-left"><?= $this->lang->line('verify_password') ?></label>
                                                 <div class="col-9">
-                                                    <input class="form-control form-control-lg form-control-solid" type="password" value="" name="verify_password" placeholder="Re-write your new Password." />
+                                                    <input class="form-control form-control-lg form-control-solid" type="password" value="" name="verify_password" placeholder="<?= $this->lang->line('re_write_your_new_password') ?>." />
                                                 </div>
                                             </div>
                                             <!--end::Group-->
@@ -212,8 +212,8 @@
                                         <div class="row">
                                             <div class="col-3"></div>
                                             <div class="col-9">
-                                                <button type="submit" class="btn btn-light-primary font-weight-bold">Save changes</button>
-                                                <a href="#" class="btn btn-clean font-weight-bold">Cancel</a>
+                                                <button type="submit" class="btn btn-light-primary font-weight-bold"><?= $this->lang->line('save_changes') ?></button>
+                                                <a href="#" class="btn btn-clean font-weight-bold"><?= $this->lang->line('cancel') ?></a>
                                             </div>
                                         </div>
                                     </div>

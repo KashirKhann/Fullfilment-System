@@ -22,8 +22,8 @@
             <div class="card card-custom gutter-b">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">User Logs
-                            <span class="d-block text-muted pt-2 font-size-sm">Logs of Add/ Update/ Delete Users</span>
+                        <h3 class="card-label"><?= $this->lang->line('user_logs') ?>
+                            <span class="d-block text-muted pt-2 font-size-sm"><?= $this->lang->line('logs_of_add_update_delete_users') ?></span>
                         </h3>
                     </div>
                 </div>
@@ -37,11 +37,11 @@
                         <thead>
                             <tr>
                                 <th>Log ID</th>
-                                <th>User ID</th>
+                                <th><?= $this->lang->line('user_id') ?></th>
                                 <th>Email</th>
-                                <th>Created By</th>
-                                <th>Type</th>
-                                <th>Created On</th>
+                                <th><?= $this->lang->line('created_by') ?></th>
+                                <th><?= $this->lang->line('type') ?></th>
+                                <th><?= $this->lang->line('created_on') ?></th>
                             </tr>
                         </thead>
                         <tbody>

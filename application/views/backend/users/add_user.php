@@ -15,7 +15,7 @@ $k = 0;
             <div class="card card-custom gutter-b">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Add User
+                        <h3 class="card-label"><?= $this->lang->line('add_user') ?>
                         </h3>
                     </div>
                 </div>
@@ -36,9 +36,9 @@ $k = 0;
                         <div class="form-group row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <h5>Select the user type you want to add:</h5>
+                                    <h5><?= $this->lang->line('select_the_user_type') ?></h5>
                                 </div>
-                                <label style="margin-right: 0.5em;">User Group:</label>
+                                <label style="margin-right: 0.5em;"><?= $this->lang->line('user_group') ?>:</label>
                                 <div class="dropdown bootstrap-select form-control col-md-4">
                                     <select class="form-control selectpicker" data-size="5" tabindex="null" name="user_group" id="user_group">
                                         <?php
@@ -57,14 +57,15 @@ $k = 0;
                                         <option value="Employee">Employee</option>
                                     </select>
                                 </div>
-                                <span class="form-text text-muted">Please select user group</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_select_user_group') ?></span>
                             </div>
                             <div class="col-lg-6 assignparent">
                                 <div class="form-group">
-                                    <h5>Select the user parent: <span class="required_field">*</span></h5>
+                                    <h5><?= $this->lang->line('select_the_user_parent') ?>: <span class="required_field">*</span></h5>
                                 </div>
 
                                 <div class="col-md-6">
+                                    <label style="margin-right: 0.5em;"><?= $this->lang->line('user_parent') ?>:</label>
                                     <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
                                         <option value="">-- Select --</option>
                                         <?php if ($this->session->userdata('role') != 'SuperAdmin') { ?>
@@ -85,7 +86,7 @@ $k = 0;
                                         ?>
                                     </select>
                                 </div>
-                                <span class="form-text text-muted">Please select parent</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_select_parent') ?></span>
                             </div>
                         </div>
 
@@ -93,108 +94,108 @@ $k = 0;
 
                         <div class="form-group row super_emp_div">
                             <div class="col-lg-3">
-                                <label>First Name: <span class="required_field">*</span></label>
-                                <input type="text" class="form-control" placeholder="Please enter your First name" name="firstname" value="" />
-                                <span class="form-text text-muted">Please enter your First Name</span>
+                                <label><?= $this->lang->line('first_name') ?>: <span class="required_field">*</span></label>
+                                <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_first_name') ?>" name="firstname" value="" />
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_first_name') ?></span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Last Name: <span class="required_field">*</span></label>
-                                <input type="text" class="form-control" placeholder="Please enter your Last name" name="lastname" value="" />
-                                <span class="form-text text-muted">Please enter your Last Name</span>
+                                <label><?= $this->lang->line('last_name') ?>: <span class="required_field">*</span></label>
+                                <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_last_name') ?>" name="lastname" value="" />
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_last_name') ?></span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Email: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('email') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Please enter your Email" name="email" value="" />
+                                    <input type="email" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_email') ?>" name="email" value="" />
                                     <div class="input-group-append"><span class="input-group-text"><i class="flaticon-multimedia"></i></span></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Email</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_email') ?></span>
                             </div>
                             <div class="col-lg-3">
-                                <label>Password: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('password') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" placeholder="Enter your Password" name="password" value="" />
+                                    <input type="password" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_password') ?>" name="password" value="" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Password</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_password') ?></span>
                             </div>
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>Company Name: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('company_name') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Please enter your company name" name="company_name" value="" />
+                                    <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_company_name') ?>" name="company_name" value="" />
                                 </div>
-                                <span class="form-text text-muted">Please enter your Company Name</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_company_name') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Street Line 1: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('street_line_1') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter your Street line 1" name="street1" value="" />
+                                    <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_street_line_1') ?>" name="street1" value="" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Street Line 1</span>
+                                <span class="form-text text-muted">Please <?= $this->lang->line('please_enter_your_street_line_1') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Street Line 2:</label>
+                                <label><?= $this->lang->line('street_line_2') ?>:</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter your Street line 2" name="street2" value="" />
+                                    <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_street_line_2') ?>" name="street2" value="" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Street Line 2</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_street_line_2') ?></span>
                             </div>
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>City: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('city') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter your city" name="city" value="" />
+                                    <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_city') ?>" name="city" value="" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your city</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_city') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label>State:</label>
+                                <label><?= $this->lang->line('state') ?>:</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter your State" name="state" value="" />
+                                    <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_state') ?>" name="state" value="" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your State</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_state') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Zip Code: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('zip_code') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
-                                    <input type="number" class="form-control" placeholder="Enter your Zip Code" name="zip_code" value="" />
+                                    <input type="number" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_zip_code') ?>" name="zip_code" value="" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Zip Code</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_zip_code') ?></span>
                             </div>
                         </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
-                                <label>Country: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('country') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter your Country" name="country" value="" />
+                                    <input type="text" class="form-control" placeholder="<?= $this->lang->line('please_enter_your_country') ?>" name="country" value="" />
                                     <div class="input-group-append"></div>
                                 </div>
-                                <span class="form-text text-muted">Please enter your Country</span>
+                                <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_country') ?></span>
                             </div>
                             <div class="col-lg-4">
-                                <label>Language: <span class="required_field">*</span></label>
+                                <label><?= $this->lang->line('language') ?>: <span class="required_field">*</span></label>
                                 <div class="input-group">
                                     <div class="dropdown bootstrap-select form-control">
                                         <select class="form-control selectpicker" data-size="5" tabindex="null" name="language">
-                                            <option value="">Enter your Language</option>
+                                            <option value=""><?= $this->lang->line('enter_your_language') ?></option>
                                             <option value="en">English</option>
                                             <option value="de">German</option>
                                         </select>
-                                        <span class="form-text text-muted">Please enter your Language</span>
+                                        <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_language') ?></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-4">Photo</label>
+                            <label class="col-form-label col-4"><?= $this->lang->line('photo') ?></label>
                             <div class="col-12">
                                 <div class="image-input image-input-empty image-input-outline" id="kt_user_edit_avatar" style="background-image: url(<?php echo base_url('assets/backend'); ?>/media/users/blank.png)">
                                     <div class="image-input-wrapper"></div>

@@ -22,8 +22,8 @@
             <div class="card card-custom gutter-b">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Sessions Logs
-                            <span class="d-block text-muted pt-2 font-size-sm">Logs for Sign In and Sign Out Report</span>
+                        <h3 class="card-label"><?= $this->lang->line('session_logs') ?>
+                            <span class="d-block text-muted pt-2 font-size-sm"><?= $this->lang->line('logs_for_sign_in_and_sign_out_report') ?></span>
                         </h3>
                     </div>
                 </div>
@@ -37,12 +37,12 @@
                         <thead>
                             <tr>
                                 <th>Log ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                <th><?= $this->lang->line('first_name') ?></th>
+                                <th><?= $this->lang->line('last_name') ?></th>
                                 <th>Email</th>
-                                <th>Role</th>
-                                <th>Type</th>
-                                <th>Created On</th>
+                                <th><?= $this->lang->line('role') ?></th>
+                                <th><?= $this->lang->line('type') ?></th>
+                                <th><?= $this->lang->line('created_on') ?></th>
                             </tr>
                         </thead>
                         <tbody>

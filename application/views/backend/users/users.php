@@ -3,7 +3,7 @@
     <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
-             <?php if ($this->session->flashdata('success')) { ?>
+            <?php if ($this->session->flashdata('success')) { ?>
                 <div class="alert alert-success">
                     <a href="#" class="close" data-dismiss="alert">&times;</a>
                     <?php echo $this->session->flashdata('success'); ?>
@@ -22,8 +22,8 @@
             <div class="card card-custom gutter-b">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">Users Listing
-                            <span class="d-block text-muted pt-2 font-size-sm">Users listing & management</span>
+                        <h3 class="card-label"><?= $this->lang->line('user_listing_heading') ?>
+                            <span class="d-block text-muted pt-2 font-size-sm"><?= $this->lang->line('user_listing_management_subheading') ?></span>
                         </h3>
                     </div>
                     <div class="card-toolbar">
@@ -39,7 +39,7 @@
                                     </g>
                                 </svg>
                                 <!--end::Svg Icon-->
-                            </span>Add new User</a>
+                            </span><?= $this->lang->line('add_new_user') ?></a>
                         <!--end::Button-->
                     </div>
                 </div>
@@ -55,58 +55,58 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Country</th>
-                                <th>User Group</th>
-                                <th>Parent</th>
-                                <th>Created By</th>
-                                <th>Actions</th>
+                                <th><?= $this->lang->line('country') ?></th>
+                                <th><?= $this->lang->line('user_group') ?></th>
+                                <th><?= $this->lang->line('parent') ?></th>
+                                <th><?= $this->lang->line('created_by') ?></th>
+                                <th><?= $this->lang->line('actions') ?></th>
                             </tr>
                         </thead>
                         <tbody>
-                        <?php 
-                        $sno = 1;
-                        foreach($user as $key => $val){?>
-                            <tr>
-                                <td><?php echo $sno;?></td>
-                                <td><?php echo $val->firstname;?></td>
-                                <td><?php echo $val->email;?></td>
-                                <td><?php echo $val->country;?></td>
-                                <td><?php echo $val->user_group;?></td>
-                                <td><?php echo $val->created_name;?></td>
-                                <td><?php echo $val->parent_name;?></td>
-                                <td>
-                                    <a href="<?php echo base_url('administrator/view_customer_user'); ?>/<?php echo $val->id;?>" class="btn btn-sm btn-clean btn-icon" title="View Customer">
-                                        <span class="svg-icon svg-icon-md">
-                                            <i class="ki ki-eye"></i>
-                                        </span>
-                                    </a>
-                                    <a href="<?php echo base_url('administrator/edit_customer_user'); ?>/<?php echo $val->id;?>" class="btn btn-sm btn-clean btn-icon" title="Edit Lead">
-                                        <span class="svg-icon svg-icon-md">
-                                            <i class="flaticon2-edit"></i>
-                                        </span>
-                                    </a>
-                                    <?php
-                                    if ($this->session->userdata('role') == 'SuperAdmin') {
-                                    ?>
+                            <?php
+                            $sno = 1;
+                            foreach ($user as $key => $val) { ?>
+                                <tr>
+                                    <td><?php echo $sno; ?></td>
+                                    <td><?php echo $val->firstname; ?></td>
+                                    <td><?php echo $val->email; ?></td>
+                                    <td><?php echo $val->country; ?></td>
+                                    <td><?php echo $val->user_group; ?></td>
+                                    <td><?php echo $val->created_name; ?></td>
+                                    <td><?php echo $val->parent_name; ?></td>
+                                    <td>
+                                        <a href="<?php echo base_url('administrator/view_customer_user'); ?>/<?php echo $val->id; ?>" class="btn btn-sm btn-clean btn-icon" title="View Customer">
+                                            <span class="svg-icon svg-icon-md">
+                                                <i class="ki ki-eye"></i>
+                                            </span>
+                                        </a>
+                                        <a href="<?php echo base_url('administrator/edit_customer_user'); ?>/<?php echo $val->id; ?>" class="btn btn-sm btn-clean btn-icon" title="Edit Lead">
+                                            <span class="svg-icon svg-icon-md">
+                                                <i class="flaticon2-edit"></i>
+                                            </span>
+                                        </a>
+                                        <?php
+                                        if ($this->session->userdata('role') == 'SuperAdmin') {
+                                        ?>
 
-                                    <a href="<?php echo base_url('administrator/delete_customer_user'); ?>/<?php echo $val->id;?>" class="btn btn-sm deleteBtn btn-clean btn-icon" title="Delete">
-                                        <span class="svg-icon svg-icon-md">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24" />
-                                                    <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero" />
-                                                    <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
-                                                </g>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                    <?php
-                                    }
-                                    ?>
-                                </td>
-                            </tr>
-                        <?php $sno++;
-                        }?>
+                                            <a href="<?php echo base_url('administrator/delete_customer_user'); ?>/<?php echo $val->id; ?>" class="btn btn-sm deleteBtn btn-clean btn-icon" title="Delete">
+                                                <span class="svg-icon svg-icon-md">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                            <rect x="0" y="0" width="24" height="24" />
+                                                            <path d="M6,8 L6,20.5 C6,21.3284271 6.67157288,22 7.5,22 L16.5,22 C17.3284271,22 18,21.3284271 18,20.5 L18,8 L6,8 Z" fill="#000000" fill-rule="nonzero" />
+                                                            <path d="M14,4.5 L14,4 C14,3.44771525 13.5522847,3 13,3 L11,3 C10.4477153,3 10,3.44771525 10,4 L10,4.5 L5.5,4.5 C5.22385763,4.5 5,4.72385763 5,5 L5,5.5 C5,5.77614237 5.22385763,6 5.5,6 L18.5,6 C18.7761424,6 19,5.77614237 19,5.5 L19,5 C19,4.72385763 18.7761424,4.5 18.5,4.5 L14,4.5 Z" fill="#000000" opacity="0.3" />
+                                                        </g>
+                                                    </svg>
+                                                </span>
+                                            </a>
+                                        <?php
+                                        }
+                                        ?>
+                                    </td>
+                                </tr>
+                            <?php $sno++;
+                            } ?>
                         </tbody>
                     </table>
                     <!--end: Datatable-->
