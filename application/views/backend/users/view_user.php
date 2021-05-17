@@ -22,7 +22,7 @@
                                     <option value="<?= $customer_user->user_group ?>"><?= $customer_user->user_group ?></option>
                                 </select>
                             </div>
-                            <div class="col-lg-6 assignparent">
+                            <!-- <div class="col-lg-6 assignparent">
                                 <div class="col-md-6">
                                     <?php
                                     if ($customer_user->user_group == 'Admin') {
@@ -52,7 +52,7 @@
                                     }
                                     ?>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <hr class="form-group row">
@@ -137,13 +137,12 @@
                             <div class="col-lg-4">
                                 <label><?= $this->lang->line('language') ?>:</label>
                                 <div class="input-group">
-                                    <div class="dropdown bootstrap-select form-control">
-                                        <select disabled="" class="form-control selectpicker" data-size="5" tabindex="null" name="language">
-                                            <option value="">Enter your Language</option>
-                                            <option value="en">English</option>
-                                            <option value="de">German</option>
-                                        </select>
-                                    </div>
+                                    <input readonly type="text" class="form-control" placeholder="Enter your Language" name="language" value="<?php if ($customer_user->language == "de") {
+                                                                                                                                                    echo "German";
+                                                                                                                                                } else {
+                                                                                                                                                    echo "English";
+                                                                                                                                                }
+                                                                                                                                                ?>" />
                                 </div>
 
                             </div>
