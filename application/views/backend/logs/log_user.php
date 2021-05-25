@@ -33,7 +33,7 @@
                     <!--begin: Datatable-->
                     <!-- <h4><i class="flaticon2-next"></i> New Customers Accounts</h4>
                     <hr> -->
-                    <table class="table table-separate table-head-custom table-checkable" id="kt_datatable1">
+                    <table class="responsive table table-separate table-head-custom table-checkable" id="kt_datatable3">
                         <thead>
                             <tr>
                                 <th>Log ID</th>

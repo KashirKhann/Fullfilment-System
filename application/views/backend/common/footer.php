@@ -160,6 +160,21 @@
 				}
 			})
 		});
+
+		<?php if ($this->session->userdata('site_lang') == 'english') { ?>
+			$('#kt_datatable3').DataTable({
+				"language": {
+					"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json"
+				}
+			});
+		<?php } else { ?>
+			$('#kt_datatable3').DataTable({
+				"language": {
+					"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/German.json"
+				}
+			});
+		<?php } ?>
+
 	});
 </script>
 
