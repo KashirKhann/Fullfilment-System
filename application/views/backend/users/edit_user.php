@@ -95,6 +95,22 @@
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_password') ?></span>
                             </div>
                         </div>
+                        <div class="form-group row super_emp_div">
+                            <div class="col-lg-3">
+                                <label><?= $this->lang->line('language') ?>:</label>
+                                <div class="input-group">
+                                    <div class="dropdown bootstrap-select form-control">
+                                        <select class="form-control selectpicker" data-size="5" tabindex="null" name="language">
+                                            <option value=""><?= $this->lang->line('enter_your_language') ?></option>
+                                            <option value="en" <?php if ($customer_user->language == "en") echo 'selected="selected"'; ?>>English</option>
+                                            <option value="de" <?php if ($customer_user->language == "de") echo 'selected="selected"'; ?>>German</option>
+                                        </select>
+                                        <span class="form-text text-muted"><?= $this->lang->line('enter_your_language') ?></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         <div class="form-group row admin_div" style="display: none;">
                             <div class="col-lg-4">
                                 <label><?= $this->lang->line('company_name') ?>:</label>
@@ -154,20 +170,6 @@
                                     <div class="input-group-append"></div>
                                 </div>
                                 <span class="form-text text-muted"><?= $this->lang->line('please_enter_your_country') ?></span>
-                            </div>
-                            <div class="col-lg-4">
-                                <label><?= $this->lang->line('language') ?>:</label>
-                                <div class="input-group">
-                                    <div class="dropdown bootstrap-select form-control">
-                                        <select class="form-control selectpicker" data-size="5" tabindex="null" name="language">
-                                            <option value=""><?= $this->lang->line('enter_your_language') ?></option>
-                                            <option value="en">English</option>
-                                            <option value="de">German</option>
-                                        </select>
-                                        <span class="form-text text-muted"><?= $this->lang->line('enter_your_language') ?></span>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                         <div class="form-group row">

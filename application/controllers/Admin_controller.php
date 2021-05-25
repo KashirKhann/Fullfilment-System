@@ -39,6 +39,15 @@ class Admin_controller extends CI_Controller
 		$this->load->view('backend/common/footer');
 	}
 
+	public function add_user()
+	{
+		$this->notAllowEmployee();
+		$data['getAllUsers'] = $this->Customer_user_model->getAllUsers();
+		$this->load->view('backend/common/header');
+		$this->load->view('backend/users/add_user', $data);
+		$this->load->view('backend/common/footer');
+	}
+
 	public function insert_customer_user()
 	{
 		$this->notAllowEmployee();
@@ -46,6 +55,7 @@ class Admin_controller extends CI_Controller
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('firstname', 'First name', 'required');
 		$this->form_validation->set_rules('lastname', 'Last name', 'required');
+		$this->form_validation->set_rules('language', 'Language', 'required');
 		if ($this->input->post('user_group') == 'Customer' || $this->input->post('user_group') == 'Employee') {
 			$this->form_validation->set_rules('user_parent', 'User parent', 'required');
 		}
@@ -71,15 +81,6 @@ class Admin_controller extends CI_Controller
 			$this->session->set_flashdata('error', 'Access your Users, Else system will block your Account !');
 			redirect('');
 		}
-	}
-
-	public function add_user()
-	{
-		$this->notAllowEmployee();
-		$data['getAllUsers'] = $this->Customer_user_model->getAllUsers();
-		$this->load->view('backend/common/header');
-		$this->load->view('backend/users/add_user', $data);
-		$this->load->view('backend/common/footer');
 	}
 
 	public function edit_customer_user($id)
