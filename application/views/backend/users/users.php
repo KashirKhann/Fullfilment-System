@@ -86,7 +86,7 @@
                                             </span>
                                         </a>
                                         <?php
-                                        if ($this->session->userdata('role') == 'SuperAdmin') {
+                                        if ($this->session->userdata('role') == 'SuperAdmin' && $val->id !== 1) {
                                         ?>
 
                                             <a href="<?php echo base_url('administrator/delete_customer_user'); ?>/<?php echo $val->id; ?>" class="btn btn-sm deleteBtn btn-clean btn-icon" title="Delete">
