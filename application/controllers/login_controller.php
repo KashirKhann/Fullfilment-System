@@ -53,10 +53,18 @@ class Login_controller extends CI_Controller
 				'user_id' => $user->id,
 			));
 			$this->session->set_userdata($session_data);
-			$this->session->set_flashdata('success', 'Welcome ' . $user->firstname . ' !');
+			if ($user->language == 'german') {
+				$this->session->set_flashdata('success', 'Herzlich willkommen ' . $user->firstname . ' !');
+			} else {
+				$this->session->set_flashdata('success', 'Welcome ' . $user->firstname . ' !');
+			}
 			redirect('administrator/dashboard');
 		} else {
-			$this->session->set_flashdata('error', 'Wrong Credentials !');
+			if ($user->language == 'german') {
+				$this->session->set_flashdata('error', 'Falsche Anmeldeinformationen !');
+			} else {
+				$this->session->set_flashdata('error', 'Wrong Credentials !');
+			}
 			redirect('administrator');
 		}
 	}

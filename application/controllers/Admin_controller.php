@@ -61,7 +61,7 @@ class Admin_controller extends CI_Controller
 		}
 		if ($this->form_validation->run() == TRUE) {
 			$this->Customer_user_model->insert_customer_user($_POST);
-			$this->session->set_flashdata('success', 'User addedd successfully!');
+			$this->session->set_flashdata('success', $this->lang->line('user_added_successfully'));
 			redirect('administrator/users');
 		} else {
 			$this->session->set_flashdata('error',  validation_errors());
@@ -78,7 +78,7 @@ class Admin_controller extends CI_Controller
 			$this->load->view('backend/users/view_user', $data);
 			$this->load->view('backend/common/footer');
 		} else {
-			$this->session->set_flashdata('error', 'Access your Users, Else system will block your Account !');
+			$this->session->set_flashdata('error', $this->lang->line('access_your_users'));
 			redirect('');
 		}
 	}
@@ -107,7 +107,7 @@ class Admin_controller extends CI_Controller
 		$this->notAllowEmployee();
 		$this->db->where('id', $id);
 		$this->db->delete('customer_user');
-		$this->session->set_flashdata('error', 'User deleted successfully!');
+		$this->session->set_flashdata('error', $this->lang->line('user_deleted_successfully'));
 		redirect('administrator/users');
 	}
 	/********************users listing Ends***************/
@@ -131,7 +131,7 @@ class Admin_controller extends CI_Controller
 		$this->db->where('password', $_POST['current_password']);
 		$check_current_password = $this->db->get()->row();
 		if (empty($check_current_password)) {
-			$this->session->set_flashdata('error', 'Current password does not match!');
+			$this->session->set_flashdata('error', $this->lang->line('current_pass_does_not_match'));
 			redirect('administrator/settings');
 		} else {
 			if ($_POST['new_password'] == $_POST['verify_password']) {
@@ -140,10 +140,10 @@ class Admin_controller extends CI_Controller
 				);
 				$this->db->where('id', $this->session->userdata('id'));
 				$this->db->update('customer_user', $update_password);
-				$this->session->set_flashdata('success', 'Password changed successfully !');
+				$this->session->set_flashdata('success', $this->lang->line('pass_change_successfully'));
 				redirect('administrator/settings');
 			} else {
-				$this->session->set_flashdata('error', 'New password and verify password does not match !');
+				$this->session->set_flashdata('error', $this->lang->line('new_pass_and_verify_pass_not_match'));
 				redirect('administrator/settings');
 			}
 		}

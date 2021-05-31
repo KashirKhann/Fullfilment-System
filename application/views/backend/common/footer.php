@@ -142,18 +142,19 @@
 		$(document).on('click', '.deleteBtn', function(e) {
 			e.preventDefault();
 			Swal.fire({
-				title: 'Are you sure?',
-				text: "You won't be able to revert this!",
+				title: '<?= $this->lang->line('are_you_sure'); ?>',
+				text: "<?= $this->lang->line('you_wont_be_able_to_revert_this'); ?>",
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',
 				cancelButtonColor: '#d33',
-				confirmButtonText: 'Yes, delete it!'
+				confirmButtonText: '<?= $this->lang->line('yes_delete_it'); ?>',
+				cancelButtonText: '<?= $this->lang->line('cancel'); ?>'
 			}).then((result) => {
 				if (result.isConfirmed) {
 					Swal.fire(
-						'Deleted!',
-						'Your file has been deleted.',
+						'<?= $this->lang->line('deleted'); ?>',
+						'<?= $this->lang->line('your_file_has_been_deleted'); ?>',
 						'success'
 					)
 					window.location.href = $(this).attr('href');

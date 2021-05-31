@@ -26,43 +26,54 @@
                                 </select>
                                 <span class="form-text text-muted"><?= $this->lang->line('please_select_user_group') ?></span>
                             </div>
-                            <div class="col-lg-6 assignparent">
-                                <div class="form-group">
-                                    <h5><?= $this->lang->line('select_the_user_parent') ?>:</h5>
-                                </div>
+                            <?php
+                            if ($customer_user->user_group == 'SuperAdmin') {
+                            ?>
+                                <input type="hidden" name="user_parent" value="superAdmin">
+                            <?php
+                            } else {
+                            ?>
+                                <div class="col-lg-6 assignparent">
+                                    <div class="form-group">
+                                        <h5><?= $this->lang->line('select_the_user_parent') ?>:</h5>
+                                    </div>
 
-                                <div class="col-md-6">
-                                    <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
-                                    <?php
-                                    if ($customer_user->user_group == 'Admin') {
-                                    ?>
-                                        <input type="hidden" name="user_parent">
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <label style="margin-right: 0.5em;"><?= $this->lang->line('user_parent') ?>:</label>
-                                        <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
-                                            <option value="">-- Select --</option>
-                                            <?php
-                                            foreach ($getAllUsers as $getAllUser) {
-                                                if ($getAllUser->user_group == 'Admin') {
-                                            ?>
-                                                    <option class="admin_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                    <div class="col-md-6">
+                                        <!-- <label style="margin-right: 0.5em;">User Parent:</label> -->
+                                        <?php
+                                        if ($customer_user->user_group == 'Admin') {
+                                        ?>
+                                            <input type="hidden" name="user_parent">
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <label style="margin-right: 0.5em;"><?= $this->lang->line('user_parent') ?>:</label>
+                                            <select class="form-control" data-size="5" tabindex="null" name="user_parent" required id="user_parent">
+                                                <option value="">-- Select --</option>
                                                 <?php
-                                                } elseif ($getAllUser->user_group == 'Customer') {
+                                                foreach ($getAllUsers as $getAllUser) {
+                                                    if ($getAllUser->user_group == 'Admin') {
                                                 ?>
-                                                    <option class="customer_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
-                                            <?php
+                                                        <option class="admin_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                                    <?php
+                                                    } elseif ($getAllUser->user_group == 'Customer') {
+                                                    ?>
+                                                        <option class="customer_options" value="<?= $getAllUser->id ?>"><?= $getAllUser->firstname ?> (<?= $getAllUser->email ?>)</option>
+                                                <?php
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </select>
-                                    <?php
-                                    }
-                                    ?>
+                                                ?>
+                                            </select>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <span class="form-text text-muted"><?= $this->lang->line('please_select_parent') ?></span>
                                 </div>
-                                <span class="form-text text-muted"><?= $this->lang->line('please_select_parent') ?></span>
-                            </div>
+                            <?php
+                            }
+
+                            ?>
                         </div>
 
                         <hr class="form-group row">
